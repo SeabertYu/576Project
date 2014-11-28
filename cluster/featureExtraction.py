@@ -127,21 +127,27 @@ def main(matching, logging):
     min_k = -1
     min_m = 99999
     for i in range(15, 50):
+        print "max clusters", i
         for k in range(5, 50):
-            x = naiveProcess(matching, k)
-            z = linkage(x,method='complete')
-            clz = fcluster(z, i, criterion='maxclust')
-            e = eval.eval_overall(clz, logging)
-            if min_m < e:
-                min_m = e
+            e,f = cluster(matching, i, k, logging)
+            if f < min_m:
+                min_m = f
                 min_i = i
                 min_k = k
-
-    print min_i, min_k, min_m
+    print min_i, min_k
+    cluster(matching, min_i, min_k, True)
     return min_i, min_k, min_m
+
+def cluster(matching, i, k, logging):
+    x = naiveProcess(matching, k)
+    z = linkage(x,method='complete')
+    clz = fcluster(z, i, criterion='maxclust')
+    e,f = eval.eval_overall(clz, logging)
+    return e,f
 
 if __name__ == "__main__":
     # dirpath = "/Users/apple/graduate/Courses/576 Multimedia/workspace/ImageClustering/img/unclustered/"
     out = "matching.txt"
     matching = pickle.load(open(out, "rb"))
-    main(matching, False)
+    #main(matching, False)
+    cluster(matching, 44, 24, True)

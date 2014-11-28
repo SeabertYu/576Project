@@ -1,8 +1,27 @@
 __author__ = 'haoyu'
 
+def eval_head(heads, logging):
+    index = build()
+    precision = 0.0
+    recall = 0.0
+    c = 0
+    l = 0
+    for i in index:
+        if i == "head":
+            l += 1
+    for h in heads:
+        if index[h-1] == "head":
+            c += 1
+    precision = float(c) / len(heads)
+    recall = float(c) / l
+    if logging:
+        print precision, recall
+    return 2 * precision * recall / (precision + recall)
+
+
 def build():
     index = ["" for i in range(300)]
-    domains = ["tommy", "dohney", "leavy", "SAL", "venue", "seat", "cal_pizza_kitchen", "tutor center", "windows", "red building", "arc", "circle"]
+    domains = ["tommy", "dohney", "leavy", "SAL", "venue", "seat", "cal_pizza_kitchen", "tutor center", "windows", "red building", "arc", "circle", "head"]
     d = 0
     # tommy
     for i in range(60, 79):
@@ -65,6 +84,16 @@ def build():
     # circle
     for i in range(292, 298):
         index[i] = domains[d]
+    # head
+    d = 12
+    index[30] = domains[d]
+    index[40] = domains[d]
+    for i in range(43, 49):
+        index[i] = domains[d]
+    for i in range(50, 57):
+        index[i] = domains[d]
+    index[58] = domains[d]
+    index[59] = domains[d]
     return index
 
 
@@ -74,6 +103,7 @@ def eval_overall(cc, logging):
     index = build()
     domains = {}
     f = 0
+    ff = 0
     for i in range(len(index)):
         if "" == index[i] or domains.has_key(index[i]):
             continue;
@@ -82,10 +112,11 @@ def eval_overall(cc, logging):
             if index[i] == index[j]:
                 domains[index[i]].append(j)
     for d in domains.keys():
-        cluster, false = eval(cc, domains[d], d, logging)
+        imgs, cluster, false = eval(cc, domains[d], d, logging)
         f += 2 * cluster + false
+        ff += false
 
-    return f
+    return f, ff
 
 
 
@@ -99,6 +130,7 @@ def eval(cc, index, domain, logging):
     # find out how many clusters have in cluster result.
     for i in index:
         a[cc[i]] = True
+    print a
     # find out how many image should not be clustered into this cluster
     for i in range(0, len(cc)):
         if a.has_key(cc[i]):
@@ -106,5 +138,5 @@ def eval(cc, index, domain, logging):
                 falseclassified += 1
 
     if logging:
-        print str(domain), len(a), falseclassified
-    return len(a), falseclassified
+        print str(domain), len(index), len(a), falseclassified
+    return len(index), len(a), falseclassified
