@@ -130,7 +130,7 @@ def eval(cc, index, domain, logging):
     # find out how many clusters have in cluster result.
     for i in index:
         a[cc[i]] = True
-    print a
+    #print a
     # find out how many image should not be clustered into this cluster
     for i in range(0, len(cc)):
         if a.has_key(cc[i]):

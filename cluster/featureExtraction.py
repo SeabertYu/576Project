@@ -5,6 +5,7 @@ import sys
 from os import listdir
 from os.path import isfile
 import pickle
+import json
 from scipy.cluster.hierarchy import linkage
 from scipy.cluster.hierarchy import fcluster
 import eval
@@ -143,11 +144,27 @@ def cluster(matching, i, k, logging):
     z = linkage(x,method='complete')
     clz = fcluster(z, i, criterion='maxclust')
     e,f = eval.eval_overall(clz, logging)
-    return e,f
+    return e,f, clz
+
+def array2json(clz):
+    c = {}
+    for i in range(len(clz)):
+        cs = str(clz[i])
+        if c.has_key(cs) == False:
+            c[cs] = []
+        c[cs].append(i)
+    return c
+
 
 if __name__ == "__main__":
     # dirpath = "/Users/apple/graduate/Courses/576 Multimedia/workspace/ImageClustering/img/unclustered/"
-    out = "matching.txt"
-    matching = pickle.load(open(out, "rb"))
+    mat = "matching.txt"
+    matching = pickle.load(open(mat, "rb"))
     #main(matching, False)
-    cluster(matching, 44, 24, True)
+    e,f,clz = cluster(matching, 44, 24, True)
+    jc = array2json(clz)
+    print jc
+    out = "image_cluster.txt"
+    json.dump(jc, open(out, "w+"))
+
+
