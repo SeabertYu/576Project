@@ -162,9 +162,10 @@ if __name__ == "__main__":
     matching = pickle.load(open(mat, "rb"))
     #main(matching, False)
     e,f,clz = cluster(matching, 44, 24, True)
+    pickle.dump(clz, open("image_cluster.pickle", "w+"))
     jc = array2json(clz)
     print jc
-    out = "image_cluster.txt"
+    out = "image_cluster.json"
     json.dump(jc, open(out, "w+"))
 
 

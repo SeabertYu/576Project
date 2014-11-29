@@ -1,27 +1,66 @@
 __author__ = 'haoyu'
 
-def eval_head(heads, logging):
+def eval_video(video_cluster, cluster2ImgIndex):
+    index = build()
+    vd = {}
+    cvd = build_video()
+    for i in range(len(video_cluster)):
+        vc = video_cluster[i]
+        imginds = cluster2ImgIndex[int(vc)]
+        vd[i] = {}
+        for ind in imginds:
+            vd[i][index[ind]] = True
+
+    correct = 0
+    for vdkey in vd.keys():
+        a = cvd[vdkey]
+        for akey in a.keys():
+            if vd[vdkey].has_key(akey):
+                correct += 1
+                break
+    print correct
+    return correct
+
+
+def build_video():
+    vd = [{} for i in range(10)]
+    vd[0]["unknown"] = True
+    vd[1]["leavy"] = True
+    vd[1]["red building"] = True
+    vd[2]["leavy"] = True
+    vd[3]["leavy"] = True
+    vd[4]["unknown"] = True
+    vd[5]["dohney"] = True
+    vd[6]["circle"] = True
+    vd[6]["dohney"] = True
+    vd[7]["unknown"] = True
+    vd[8]["leavy"] = True
+    vd[9]["circle"] = True
+    vd[9]["tommy"] = True
+    return vd
+
+
+def eval_label(label, inds, logging):
     index = build()
     precision = 0.0
     recall = 0.0
     c = 0
     l = 0
     for i in index:
-        if i == "head":
+        if i == label:
             l += 1
-    for h in heads:
-        if index[h-1] == "head":
+    for h in inds:
+        if index[h-1] == label:
             c += 1
-    precision = float(c) / len(heads)
+    precision = float(c) / len(inds)
     recall = float(c) / l
     if logging:
         print precision, recall
     return 2 * precision * recall / (precision + recall)
 
-
 def build():
     index = ["" for i in range(300)]
-    domains = ["tommy", "dohney", "leavy", "SAL", "venue", "seat", "cal_pizza_kitchen", "tutor center", "windows", "red building", "arc", "circle", "head"]
+    domains = ["tommy", "dohney", "leavy", "SAL", "venue", "seat", "cal_pizza_kitchen", "tutor center", "windows", "red building", "arc", "circle", "head", "comic"]
     d = 0
     # tommy
     for i in range(60, 79):
@@ -94,6 +133,12 @@ def build():
         index[i] = domains[d]
     index[58] = domains[d]
     index[59] = domains[d]
+    # comic
+    d = 13
+    for i in range(20, 40):
+        index[i] = domains[d]
+    index[49] = domains[d]
+    index[57] = domains[d]
     return index
 
 
@@ -140,3 +185,5 @@ def eval(cc, index, domain, logging):
     if logging:
         print str(domain), len(index), len(a), falseclassified
     return len(index), len(a), falseclassified
+
+

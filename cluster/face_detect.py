@@ -56,7 +56,7 @@ def main():
         print "scale factor ", s
         for n in range(1, 10, 1):
             heads = detect(dir,faceCascade, s, n)
-            f = eval.eval_head(heads, False)
+            f = eval.eval_label("head", heads, False)
             if f > maxf:
                 maxf = f
                 maxS = s
