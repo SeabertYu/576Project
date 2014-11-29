@@ -13,6 +13,8 @@ import featureExtraction
 import eval
 import json
 from featureExtraction import array2json
+import threading
+from clusterThread import clusterThread
 
 def get_all(dirpath):
     s = len(listdir(dirpath))
@@ -35,7 +37,7 @@ def get_all_imgs(dirpath):
             imgs[index - 1] = img
     return imgs
 
-def match(imgs, i, j):
+def matchWithImageIndex(imgs, i, j):
     print "match ", i, j
     img1 = imgs[i]          # queryImage
     img2 = imgs[j]
@@ -95,7 +97,7 @@ def get_key_frames(dirpath, m, r):
     while i < len(imgs) - 1:
         kframes.append(i)
         for j in range(i+1, len(imgs)):
-            s, k1, k2 = match(imgs, i, j)
+            s, k1, k2 = matchWithImageIndex(imgs, i, j)
             if s >= m:
                 continue
             elif float(s) / float(k1) >= r or float(s) / float(k2) >= r:
@@ -116,6 +118,8 @@ def load():
 
 def expand(index,mlen, incre_s):
     new_index = [i for i in index]
+    if incre_s == 0:
+        return new_index
     if new_index[0] != 0:
         new_index.insert(0, 0)
     if new_index[-1] != mlen:
@@ -153,11 +157,13 @@ def clz2dic(clz2ImgIndex):
         c[clz2ImgIndex[i]].append(i)
     return c
 
-def main():
-    clz = pickle.load(open("cluster.txt", "r"))
+# expand key frames to k frames, compare all key frames to all clusters, if > 50% frames in a video matches > r features in a cluster
+# , choose the cluster with the maximum average score among them, otherwise, label it as unknown.
+def main(mlen, k, r):
+    clz = pickle.load(open("image_cluster.pickle", "r"))
     basedir = "/Users/apple/graduate/Courses/576 Multimedia/workspace/ImageClustering/frame/"
     imgsdir = "/Users/apple/graduate/Courses/576 Multimedia/workspace/ImageClustering/img/unclustered"
-    kframes = preprocess(build_k_frames())
+    kframes = preprocess(build_k_frames(), mlen, k)
     clz2ImgIndex = clz2dic(clz)
     all_img = get_all_imgs(imgsdir)
     video_cluster = [0 for i in range(10)]
@@ -166,22 +172,35 @@ def main():
         d = basedir + str(i)
         fi = kframes[i]
         frames = [cv2.imread(d + "/" + str(ffi) + ".jpg") for ffi in fi]
-        max_score = 0.0
-        max_cluster_id = -1
-        for clz in clz2ImgIndex.keys():
-            inds = clz2ImgIndex[clz]
-            score = 0.0
-            for ind in inds:
-                temp = 0
-                for frame in frames:
-                    m, k1, k2 = match(all_img[ind], frame)
-                    temp += m
-                score += temp / len(frames)
-            if score / len(inds) > max_score:
-                max_score = score / len(inds)
-                max_cluster_id = clz
-        video_cluster[i-1] = max_cluster_id
-        print "video " + str(i) + " belong to " + str(max_cluster_id) + " with score " + str(max_score)
+
+        # go through all clusters
+        candidates = {}
+        threads = []
+        clusters = []
+        lock = threading.Lock()
+        for clusterId in clz2ImgIndex.keys():
+            t = clusterThread(clusterId, all_img, frames,clz2ImgIndex, candidates, clusters, lock,r)
+            t.start()
+            threads.append(t)
+        print "created threads ", len(threads)
+        while not len(clusters) == len(clz2ImgIndex):
+            pass
+        print " get response ", len(clz2ImgIndex)
+        if len(candidates) == 0:
+            video_cluster[i-1] = -1
+            print "video " + str(i) + " type is unknown"
+        else:
+            max_score = -1
+            max_cluster_id = -1
+            for cand in candidates.keys():
+                if candidates[cand] > max_score:
+                    max_score = candidates[cand]
+                    max_cluster_id = cand
+            print "video " + str(i) + " belong to " + str(max_cluster_id) + " with score " + str(max_score)
+
+        for t in threads:
+            t.join()
+
     return video_cluster
 
 def build_k_frames():
@@ -198,16 +217,34 @@ def build_k_frames():
     kframes[10] = [0]
     return kframes
 
-def preprocess(kframes):
+def preprocess(kframes, mlen, k):
     newkframes = {}
     for k in kframes.keys():
-        a = expand(kframes[k], 299, 1)
+        a = expand(kframes[k], mlen, k)
         newkframes[k] = a
     return newkframes
 
-if __name__  == "__main__":
-    video_cluster = pickle.load(open("video_cluster.txt", "r"))
-    pickle.dump(video_cluster, open("video_cluster.pickle", "w+"))
-    json.dump(array2json(video_cluster), open("video_cluster.json", "w+"))
+def findbest():
     clz = pickle.load(open("image_cluster.pickle", "r"))
-    eval.eval_video(video_cluster, clz2dic(clz))
+    maxc = -1
+    maxinc = -1
+    maxr = -1
+    max_video_cluster = []
+    for inc in range(0, 10):
+        for r in range(10, 30):
+            print "increase key frames size ", inc, " matching threshold ", r
+            video_cluster = main(299, inc, r)
+            c = eval.eval_video(video_cluster, clz2dic(clz))
+            if c > maxc:
+                maxc = c
+                maxinc = inc
+                maxr = r
+                max_video_cluster = [video_cluster[i] for i in range(len(video_cluster))]
+    pickle.dump(max_video_cluster, open("video_cluster.pickle", "w+"))
+    json.dump(array2json(max_video_cluster), open("video_cluster.json", "w+"))
+
+if __name__  == "__main__":
+    # img1 = cv2.imread("/Users/apple/graduate/Courses/576 Multimedia/workspace/ImageClustering/frame/1/0.jpg")
+    # img2 = cv2.imread("/Users/apple/graduate/Courses/576 Multimedia/workspace/ImageClustering/img/unclustered/image009.jpg")
+    # print match(img1,img2)
+    findbest()

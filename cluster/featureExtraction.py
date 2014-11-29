@@ -117,7 +117,7 @@ def naiveProcess(matching, k):
         for j in range(i+1, len(matching) - 1):
             m,x,y = matching[i][j]
             if m >= k:
-                n[i][j] = float(1 / float(m))
+                n[i][j] = float(1 / float(m)) * float(1 / float(m))
             else:
                 n[i][j] = 1
 
@@ -130,7 +130,7 @@ def main(matching, logging):
     for i in range(15, 50):
         print "max clusters", i
         for k in range(5, 50):
-            e,f = cluster(matching, i, k, logging)
+            e,f,clz = cluster(matching, i, k, logging)
             if f < min_m:
                 min_m = f
                 min_i = i
@@ -160,12 +160,12 @@ if __name__ == "__main__":
     # dirpath = "/Users/apple/graduate/Courses/576 Multimedia/workspace/ImageClustering/img/unclustered/"
     mat = "matching.txt"
     matching = pickle.load(open(mat, "rb"))
-    #main(matching, False)
-    e,f,clz = cluster(matching, 44, 24, True)
-    pickle.dump(clz, open("image_cluster.pickle", "w+"))
+    i,k,m = main(matching, False)
+    e,f,clz = cluster(matching, i, k, True)
+    pickle.dump(clz, open("square_image_cluster.pickle", "w+"))
     jc = array2json(clz)
     print jc
-    out = "image_cluster.json"
+    out = "square_image_cluster.json"
     json.dump(jc, open(out, "w+"))
 
 

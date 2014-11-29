@@ -6,8 +6,11 @@ def eval_video(video_cluster, cluster2ImgIndex):
     cvd = build_video()
     for i in range(len(video_cluster)):
         vc = video_cluster[i]
-        imginds = cluster2ImgIndex[int(vc)]
         vd[i] = {}
+        if vc == -1:
+            vd[i]["unknown"] = True
+            continue
+        imginds = cluster2ImgIndex[int(vc)]
         for ind in imginds:
             vd[i][index[ind]] = True
 
@@ -18,7 +21,6 @@ def eval_video(video_cluster, cluster2ImgIndex):
             if vd[vdkey].has_key(akey):
                 correct += 1
                 break
-    print correct
     return correct
 
 
