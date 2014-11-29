@@ -2,307 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="65a0c0de-bb19-4801-9dcc-ba954fd71afd" name="Default" comment="">
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_1\image001.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_1\image002.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_1\image003.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_1\image004.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_1\image005.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_1\image006.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_1\image007.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_1\image008.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_1\image009.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_1\image010.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_1\image011.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_1\image012.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_1\image013.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_1\image014.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_1\image015.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_1\image016.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_1\image017.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_1\image018.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_1\image019.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_1\image020.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_1\image021.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_1\image022.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_1\image023.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_1\image024.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_1\image025.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_1\image026.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_1\image027.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_1\image028.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_1\image029.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_1\image030.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_1\image031.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_1\image032.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_1\image033.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_1\image034.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_1\image035.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_1\image036.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_1\image037.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_1\image038.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_1\image039.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_1\image040.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_1\image041.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_1\image042.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_1\image043.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_1\image044.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_1\image045.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_1\image046.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_1\image047.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_1\image048.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_1\image049.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_1\image050.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_1\image051.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_1\image052.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_1\image053.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_1\image054.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_1\image055.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_1\image056.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_1\image057.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_1\image058.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_1\image059.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_1\image060.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_2\image061.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_2\image062.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_2\image063.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_2\image064.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_2\image065.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_2\image066.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_2\image067.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_2\image068.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_2\image069.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_2\image070.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_2\image071.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_2\image072.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_2\image073.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_2\image074.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_2\image075.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_2\image076.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_2\image077.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_2\image078.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_2\image079.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_2\image080.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_2\image081.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_2\image082.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_2\image083.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_2\image084.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_2\image085.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_2\image086.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_2\image087.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_2\image088.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_2\image089.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_2\image090.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_2\image091.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_2\image092.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_2\image093.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_2\image094.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_2\image095.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_2\image096.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_2\image097.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_2\image098.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_2\image099.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_2\image100.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_2\image101.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_2\image102.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_2\image103.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_2\image104.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_2\image105.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_2\image106.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_2\image107.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_2\image108.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_2\image109.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_2\image110.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_2\image111.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_2\image112.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_2\image113.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_2\image114.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_2\image115.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_2\image116.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_2\image117.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_2\image118.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_2\image119.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_2\image120.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_2\image121.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_2\image122.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_2\image123.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_2\image124.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_2\image125.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_2\image126.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_2\image127.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_2\image128.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_2\image129.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_2\image130.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_2\image131.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_2\image132.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_2\image133.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_2\image134.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_2\image135.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_2\image136.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_2\image137.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_2\image138.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_2\image139.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_2\image140.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_2\image141.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_2\image142.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_2\image143.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_2\image144.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_2\image145.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_2\image146.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_2\image147.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_2\image148.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_2\image149.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_2\image150.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_3\image151.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_3\image152.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_3\image153.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_3\image154.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_3\image155.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_3\image156.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_3\image157.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_3\image158.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_3\image159.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_3\image160.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_3\image161.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_3\image162.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_3\image163.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_3\image164.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_3\image165.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_3\image166.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_3\image167.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_3\image168.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_3\image169.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_3\image170.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_3\image171.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_3\image172.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_3\image173.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_3\image174.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_3\image175.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_3\image176.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_3\image177.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_3\image178.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_3\image179.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_3\image180.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_3\image181.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_3\image182.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_3\image183.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_3\image184.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_3\image185.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_3\image186.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_3\image187.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_3\image188.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_3\image189.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_3\image190.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_3\image191.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_3\image192.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_3\image193.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_3\image194.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_3\image195.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_3\image196.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_3\image197.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_3\image198.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_3\image199.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_3\image200.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_3\image201.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_3\image202.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_3\image203.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_3\image204.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_3\image205.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_3\image206.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_3\image207.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_3\image208.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_3\image209.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_3\image210.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_3\image211.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_3\image212.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_3\image213.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_3\image214.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_3\image215.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_3\image216.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_3\image217.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_3\image218.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_3\image219.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_3\image220.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_3\image221.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_3\image222.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_3\image223.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_3\image224.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_3\image225.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_3\image226.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_3\image227.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_3\image228.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_3\image229.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_3\image230.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_3\image231.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_3\image232.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_3\image233.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_3\image234.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_3\image235.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_3\image236.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_3\image237.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_3\image238.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_3\image239.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_3\image240.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_3\image241.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_3\image242.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_3\image243.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_3\image244.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_3\image245.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_3\image246.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_3\image247.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_3\image248.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_3\image249.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_3\image250.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_3\image251.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_3\image252.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_3\image253.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_3\image254.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_3\image255.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_3\image256.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_3\image257.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_3\image258.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_3\image259.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_3\image260.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_3\image261.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_3\image262.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_3\image263.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_3\image264.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_3\image265.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_3\image266.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_3\image267.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_3\image268.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_3\image269.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_3\image270.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_3\image271.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_3\image272.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_3\image273.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_3\image274.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_3\image275.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_3\image276.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_3\image277.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_3\image278.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_3\image279.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_3\image280.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_3\image281.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_3\image282.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_3\image283.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_3\image284.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_3\image285.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_3\image286.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_3\image287.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_3\image288.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_3\image289.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_3\image290.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_3\image291.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_3\image292.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_3\image293.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_3\image294.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_3\image295.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_3\image296.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_3\image297.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_3\image298.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_3\image299.rgb" afterPath="" />
-      <change type="DELETED" beforePath="E:\CSCI576\CS576_Project_Fall_2014\576Project\dataset\CS576_Project_Dataset_3\image300.rgb" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/576Project.iml" afterPath="$PROJECT_DIR$/.idea/576Project.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI.py" afterPath="$PROJECT_DIR$/GUI.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ImageParser.py" afterPath="$PROJECT_DIR$/ImageParser.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="576Project.iws" />
@@ -327,21 +30,33 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="GUI.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="GUI.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/GUI.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="228">
-              <caret line="6" column="7" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="7" />
+            <state vertical-scroll-proportion="0.5419463" vertical-offset="0" max-vertical-offset="596">
+              <caret line="17" column="14" selection-start-line="17" selection-start-column="14" selection-end-line="17" selection-end-column="14" />
+              <folding>
+                <element signature="e#22#43#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Tkinter.py" pinned="false" current-in-tab="false">
+        <entry file="file://C:/Python27/Lib/lib-tk/Tkinter.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="42214" max-vertical-offset="72485">
+              <caret line="2265" column="13" selection-start-line="2265" selection-start-column="13" selection-end-line="2265" selection-end-column="13" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ImageParser.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ImageParser.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ImageParser.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.74496645" vertical-offset="221" max-vertical-offset="817">
-              <caret line="35" column="0" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1007">
+              <caret line="39" column="33" selection-start-line="39" selection-start-column="23" selection-end-line="39" selection-end-column="33" />
               <folding>
                 <element signature="e#22#40#0" expanded="true" />
               </folding>
@@ -367,8 +82,8 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/GUI.py" />
         <option value="$PROJECT_DIR$/ImageParser.py" />
+        <option value="$PROJECT_DIR$/GUI.py" />
       </list>
     </option>
   </component>
@@ -413,7 +128,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="&lt; Python 3.4.2 (C:\Python34\python.exe) &gt;" />
+              <option name="myItemId" value="&lt; Python 2.7.8 (C:\Python27\python.exe) &gt;" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.NamedLibraryElementNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -432,7 +147,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="options.lastSelected" value="PyConsoleConfigurable.Python Console" />
+    <property name="options.lastSelected" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="recentsLimit" value="5" />
@@ -446,7 +161,7 @@
       </console-settings>
     </option>
   </component>
-  <component name="RunManager" selected="Python.ImageParser">
+  <component name="RunManager" selected="Python.GUI">
     <configuration default="false" name="GUI" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -613,8 +328,8 @@
     </list>
     <recent_temporary>
       <list size="2">
-        <item index="0" class="java.lang.String" itemvalue="Python.ImageParser" />
-        <item index="1" class="java.lang.String" itemvalue="Python.GUI" />
+        <item index="0" class="java.lang.String" itemvalue="Python.GUI" />
+        <item index="1" class="java.lang.String" itemvalue="Python.ImageParser" />
       </list>
     </recent_temporary>
   </component>
@@ -644,7 +359,7 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32975295" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.31461865" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32975295" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -677,10 +392,10 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/GUI.py">
+    <entry file="file://$USER_HOME$/.PyCharm40/system/python_stubs/-762174762/__builtin__.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="228">
-          <caret line="6" column="7" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="7" />
+        <state vertical-scroll-proportion="0.3327616" vertical-offset="7672" max-vertical-offset="98800">
+          <caret line="414" column="4" selection-start-line="414" selection-start-column="4" selection-end-line="414" selection-end-column="4" />
           <folding />
         </state>
       </provider>
@@ -693,12 +408,38 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://C:/Python27/Lib/idlelib/RemoteDebugger.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.42785236" vertical-offset="5331" max-vertical-offset="7296">
+          <caret line="296" column="34" selection-start-line="296" selection-start-column="34" selection-end-line="296" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/ImageParser.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.74496645" vertical-offset="221" max-vertical-offset="817">
-          <caret line="35" column="0" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1007">
+          <caret line="39" column="33" selection-start-line="39" selection-start-column="23" selection-end-line="39" selection-end-column="33" />
           <folding>
             <element signature="e#22#40#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Python27/Lib/lib-tk/Tkinter.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="42214" max-vertical-offset="72485">
+          <caret line="2265" column="13" selection-start-line="2265" selection-start-column="13" selection-end-line="2265" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GUI.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5419463" vertical-offset="0" max-vertical-offset="596">
+          <caret line="17" column="14" selection-start-line="17" selection-start-column="14" selection-end-line="17" selection-end-column="14" />
+          <folding>
+            <element signature="e#22#43#0" expanded="true" />
           </folding>
         </state>
       </provider>
