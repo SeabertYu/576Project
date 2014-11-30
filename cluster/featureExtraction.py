@@ -117,7 +117,7 @@ def naiveProcess(matching, k):
         for j in range(i+1, len(matching) - 1):
             m,x,y = matching[i][j]
             if m >= k:
-                n[i][j] = float(1 / float(m)) * float(1 / float(m))
+                n[i][j] = float(1 / float(m))
             else:
                 n[i][j] = 1
 
@@ -154,7 +154,6 @@ def array2json(clz):
             c[cs] = []
         c[cs].append(i)
     return c
-
 
 if __name__ == "__main__":
     # dirpath = "/Users/apple/graduate/Courses/576 Multimedia/workspace/ImageClustering/img/unclustered/"
