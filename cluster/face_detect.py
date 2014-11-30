@@ -4,6 +4,7 @@ from os import listdir
 from os.path import isfile
 import json
 import eval
+import pickle
 
 # Get user supplied values
 
@@ -66,6 +67,15 @@ def main():
     print h
     print maxf, maxS, maxN
 
+def build():
+    heads = [32, 43, 44, 45, 46, 47, 48, 52, 55, 56, 59]
+    pickle.dump(heads, open("heads.pickle","w+"))
+    dict = {}
+    dict[-2] = heads
+    json.dump(dict, open("heads.json", "w+"))
+    return heads
+
 if __name__ == '__main__':
     cascPath = "/Users/apple/graduate/Courses/576 Multimedia/project/FaceDetect-master/haarcascade_frontalface_default.xml"
-    main()
+    # main()
+    build()

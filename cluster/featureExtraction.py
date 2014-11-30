@@ -146,6 +146,12 @@ def cluster(matching, i, k, logging):
     e,f = eval.eval_overall(clz, logging)
     return e,f, clz
 
+def cluster_image(matching, i, k):
+    x = naiveProcess(matching, k)
+    z = linkage(x,method='complete')
+    clz = fcluster(z, i, criterion='maxclust')
+    return clz
+
 def array2json(clz):
     c = {}
     for i in range(len(clz)):

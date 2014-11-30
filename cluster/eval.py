@@ -1,5 +1,7 @@
 __author__ = 'haoyu'
 
+HEAD_CLUSTER_ID = -2
+
 def eval_video(video_cluster, cluster2ImgIndex):
     index = build()
     vd = {}
@@ -57,7 +59,7 @@ def eval_label(label, inds, logging):
     precision = float(c) / len(inds)
     recall = float(c) / l
     if logging:
-        print precision, recall
+        print label, "precision ", precision, "recall ", recall
     return 2 * precision * recall / (precision + recall)
 
 def build():
@@ -159,6 +161,13 @@ def eval_overall(cc, logging):
             if index[i] == index[j]:
                 domains[index[i]].append(j)
     for d in domains.keys():
+        if "head" == d:
+            a = []
+            for em in range(len(cc)):
+                if cc[em] == -2:
+                    a.append(em)
+            eval_label("head", a, logging)
+            continue
         imgs, cluster, false = eval(cc, domains[d], d, logging)
         f += 2 * cluster + false
         ff += false
