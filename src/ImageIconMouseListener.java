@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
+//TODO add enter animation
 
 public class ImageIconMouseListener implements MouseListener {
 	public JLabel preview;

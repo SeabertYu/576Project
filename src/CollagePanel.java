@@ -18,6 +18,8 @@ import javax.swing.JScrollPane;
 import javax.swing.ScrollPaneConstants;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 
 public class CollagePanel extends JPanel {
@@ -38,6 +40,12 @@ public class CollagePanel extends JPanel {
 		setLayout(new BorderLayout(10, 0));
 		
 		JButton btnBack = new JButton("Back");
+		btnBack.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				//TODO BACK BUTTON
+			}
+		});
 		btnBack.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		btnBack.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {

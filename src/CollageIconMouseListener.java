@@ -4,7 +4,7 @@ import java.awt.event.MouseListener;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
-
+//TODO click to open collage
 public class CollageIconMouseListener implements MouseListener {
 	
 	public JLabel preview;

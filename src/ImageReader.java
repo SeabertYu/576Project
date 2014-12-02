@@ -43,6 +43,16 @@ public class ImageReader {
 	}
 	
 	public static void displayImage(ImageIcon image, JLabel frame){
+		JFrame window = new JFrame();
+		if(frame == null){
+			frame = new JLabel(image);
+			JLabel title = new JLabel("<html><h2>Initializing...</h2></html>",SwingConstants.CENTER);
+			window.getContentPane().add(frame, BorderLayout.CENTER);
+			window.getContentPane().add(title,BorderLayout.NORTH);
+			window.pack();
+			window.setVisible(true);
+			window.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+		}
 		frame.setIcon(image);
 	}
 	
@@ -53,9 +63,10 @@ public class ImageReader {
 	 * @param height: collage height
 	 * @return
 	 */
-	public static BufferedImage generateCollage(
+	public static BufferedImage generateCollage(// TODO debug!
 			ArrayList<ArrayList<String>> map, int width,
 			int height) {
+		printMap(map);
 		BufferedImage result = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
 		ArrayList<String> imagelist = new ArrayList<String>();
 		int num = 0;
@@ -65,9 +76,12 @@ public class ImageReader {
 			}
 			num = 2;
 		}
-		else{
+		else if(map.size()>0){
 			imagelist.addAll(map.get(0));
 			num = 4;
+		}
+		else{
+			return result;
 		}
 		int deltaW = width/num;
 		int deltaH = height/num;
@@ -76,13 +90,14 @@ public class ImageReader {
 		int offsetY = 0;
 		float factor = (float) (1.0/num);
 		for(int i = 0; i<num; i++){
+			int offsetX = 0;
 			for(int j = 0; j<num; j++){
-				int offsetX = 0;
 				if(imagelist.isEmpty()){
 					return result;
 				}
 				String filename = imagelist.remove(0);
 				try {
+					BufferedImage current = new BufferedImage(deltaW, deltaH, BufferedImage.TYPE_INT_RGB);
 					FileInputStream is = new FileInputStream(new File(filename));
 					byte[] bytes = new byte[SIZE * 3];
 					int offset = 0;
@@ -94,19 +109,19 @@ public class ImageReader {
 					}
 					is.close();
 					int ind = 0;
-					for(int x = 0; x<deltaW; x++){
-						int mapX = linearMapping(x, factor);
-						if (mapX >= HEIGHT) {
-							mapX = HEIGHT - 1;
+					for(int y = 0; y<deltaH; y++){
+						int mapY = linearMapping(y, factor);
+						if (mapY >= HEIGHT) {
+							mapY = HEIGHT - 1;
 						}
-						ind = (mapX * deltaH);
-						for(int y = 0; y<deltaH; y++){
-							int mapY = linearMapping(y, factor);
-							if (mapY >= HEIGHT) {
-								mapY = HEIGHT - 1;
+						ind = (mapY * WIDTH);
+						for(int x = 0; x<deltaW; x++){
+							int mapX = linearMapping(x, factor);
+							if (mapX >= WIDTH) {
+								mapX = WIDTH - 1;
 							}
 							
-							int indent = ind+mapY;
+							int indent = ind+mapX;
 
 							byte r = bytes[indent];
 							byte g = bytes[indent + SIZE];
@@ -116,10 +131,11 @@ public class ImageReader {
 									| ((g & 0xff) << 8) | (b & 0xff);
 
 							result.setRGB(x+offsetX, y+offsetY, pix);
+							current.setRGB(x, y, pix);
 						}
 					}
 					
-					
+					//ImageReader.displayImage(new ImageIcon(current), null);
 					
 					
 				} catch (FileNotFoundException e) {
@@ -139,6 +155,14 @@ public class ImageReader {
 		return result;
 	}
 	
+	private static void printMap(ArrayList<ArrayList<String>> map) {
+		System.out.println("Current Collage:===============================");
+		for(ArrayList<String> list:map){
+			System.out.println(list);
+		}
+		System.out.println("===============================================");
+	}
+
 	public static ArrayList<ImageIcon> readVideo(String filename, int width,
 			int height){
 		float widthFactor = ((float)width)/WIDTH;
