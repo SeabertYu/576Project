@@ -15,15 +15,17 @@ public class CollageLabel extends JLabel {
 	public String imageFile;
 	public ArrayList<ArrayList<String>> list;
 	public BufferedImage fullImage;
+	private CollagePanel collagePanel;
 	
-	public CollageLabel(JLabel preview, ArrayList<ArrayList<String>> list){
+	public CollageLabel(CollagePanel collagePanel, JLabel preview, ArrayList<ArrayList<String>> list){
 		this.preview = preview;
 		this.list = list;
+		this.collagePanel = collagePanel;
 		
 		this.fullImage = ImageReader.generateCollage(list, MyApplication.IMAGE_WIDTH, MyApplication.IMAGE_HEIGHT);
 		//default
 		this.setIcon(new ImageIcon(this.fullImage.getScaledInstance(ICON_WIDTH, ICON_HEIGHT, Image.SCALE_DEFAULT)));
-		this.addMouseListener(new CollageIconMouseListener(this.preview, this));
+		this.addMouseListener(new CollageIconMouseListener(this.preview, this, collagePanel));
 		
 	}
 	

@@ -19,6 +19,10 @@ public class ImageReader {
 	public final static int HEIGHT = MyApplication.IMAGE_HEIGHT;
 	static int SIZE = HEIGHT * WIDTH;
 	
+	public static void displayVideo(ArrayList<ImageIcon> video, JLabel frame) {
+		displayVideo(video, 30, frame);
+	}
+	
 	public static void displayVideo(ArrayList<ImageIcon> video, int frameRate, JLabel frame) {
 		System.out.println(video.size());
 		for (ImageIcon image : video) {
@@ -70,17 +74,17 @@ public class ImageReader {
 		BufferedImage result = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
 		ArrayList<String> imagelist = new ArrayList<String>();
 		int num = 0;
-		if(map.size()>1){//2x2
-			for(ArrayList<String> list:map){
-				imagelist.add(list.get(0));
-			}
-			num = 2;
-		}
-		else if(map.size()>0){
+		if(map.size()>0){//2x2
 			imagelist.addAll(map.get(0));
-			num = 4;
+			if(imagelist.size()<=4){
+				num = 2;
+			}
+			else{
+				num = 4;
+			}
+			
 		}
-		else{
+		else {
 			return result;
 		}
 		int deltaW = width/num;

@@ -10,12 +10,12 @@ public class ImageLabel extends JLabel {
 	
 	public JLabel preview;
 	public String imageFile;
-	public ImageLabel(JLabel preview){
+	public ImageLabel(JLabel preview, String filename){
 		this.preview = preview;
 		BufferedImage image = new BufferedImage(ICON_WIDTH, ICON_HEIGHT, BufferedImage.TYPE_INT_RGB);
 		this.setIcon(new ImageIcon(image));
 		//default
-		this.setImage("./dataset/image001.rgb");
+		this.setImage(filename);
 		this.addMouseListener(new ImageIconMouseListener(this.preview, this));
 	}
 	

@@ -10,22 +10,25 @@ import javax.swing.JLabel;
 public class ImageIconMouseListener implements MouseListener {
 	public JLabel preview;
 	public ImageLabel icon;
+	ArrayList<ImageIcon> video ;
 	
 	public ImageIconMouseListener(JLabel preview, ImageLabel icon){
 		this.preview = preview;
 		this.icon = icon;
+		this.video = ImageReader.readVideo(this.icon.imageFile, MyApplication.IMAGE_WIDTH, MyApplication.IMAGE_HEIGHT);
 	}
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
-		ArrayList<ImageIcon> video = ImageReader.readVideo(this.icon.imageFile, MyApplication.IMAGE_WIDTH, MyApplication.IMAGE_HEIGHT);
-		ImageReader.displayVideo(video, 30, this.preview);
+		if(e.getClickCount() == 2){
+			ImageReader.displayVideo(video, 30, this.preview);
+		}
+		
 	}
 
 	@Override
 	public void mouseEntered(MouseEvent e) {
-		// TODO Auto-generated method stub
-		
+		ImageReader.displayImage(video.get(0), this.preview);
 	}
 
 	@Override

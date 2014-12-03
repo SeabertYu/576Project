@@ -25,6 +25,8 @@ public class MyApplication {
 	public static final String VIDEO_CLUSTER = "./cluster/video_cluster.json";
 	public static final String IMAGE_FILE = "image";
 	public static final String VIDEO_FILE = "video";
+	public static final String IMAGE_NUM = "%03d";
+	public static final String VIDEO_NUM = "%02d";
 	public static final String EXT = ".rgb";
 	public static final String FOLDER = "./dataset/";
 
@@ -41,8 +43,8 @@ public class MyApplication {
 		String videoJSON = getJSON(VIDEO_CLUSTER);
 		HashMap<String, ArrayList<String>> map = new HashMap<String, ArrayList<String>>();
 		
-		json2Map(imageJSON, map, IMAGE_FILE);
-		//TODO add video in
+		json2Map(imageJSON, map, IMAGE_FILE, IMAGE_NUM);
+		json2Map(videoJSON, map, VIDEO_FILE, VIDEO_NUM);
 		
 		//sort list
 		ArrayList<ArrayList<String>> list = sortMap(map);		
@@ -137,7 +139,7 @@ public class MyApplication {
 		return jsonStr;
 	}
 	
-	private static void json2Map(String jsonStr, HashMap<String, ArrayList<String>> map, String prefix){
+	private static void json2Map(String jsonStr, HashMap<String, ArrayList<String>> map, String prefix, String numformat){
 		JSONObject json = new JSONObject(jsonStr);
 		Iterator<?> keys = json.keys();
 		while(keys.hasNext()){
@@ -148,7 +150,7 @@ public class MyApplication {
 				filelist = map.get(key);
 			}
 			for(int i = 0; i<list.length(); i++){
-				String filename = FOLDER+prefix+String.format("%03d", list.getInt(i)+1)+EXT;
+				String filename = FOLDER+prefix+String.format(numformat, list.getInt(i)+1)+EXT;
 				filelist.add(filename);
 			}
 			map.put(key, filelist);
