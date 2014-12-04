@@ -22,11 +22,11 @@ public class ImageReader {
 	public final static int HEIGHT = MyApplication.IMAGE_HEIGHT;
 	static int SIZE = HEIGHT * WIDTH;
 	
-	public static void displayVideo(ArrayList<ImageIcon> video, JLabel frame) {
+	public static synchronized void displayVideo(ArrayList<ImageIcon> video, JLabel frame) {
 		displayVideo(video, 30, frame);
 	}
 	
-	public static void displayVideo(ArrayList<ImageIcon> video, int frameRate, JLabel frame) {
+	public static synchronized  void displayVideo(ArrayList<ImageIcon> video, int frameRate, JLabel frame) {
 		System.out.println(video.size());
 		for (ImageIcon image : video) {
 			long start = System.nanoTime();
@@ -49,7 +49,7 @@ public class ImageReader {
 		
 	}
 	
-	public static void displayImage(ImageIcon image, JLabel frame){
+	public static synchronized void displayImage(ImageIcon image, JLabel frame){
 		JFrame window = new JFrame();
 		if(frame == null){
 			frame = new JLabel(image);
