@@ -11,6 +11,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 
 import javax.swing.JFrame;
+import javax.swing.JLayeredPane;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 
@@ -34,6 +35,7 @@ public class MyApplication {
 	private JFrame frmImageBrowser;
 	private PreviewPanel previewPanel;
 	private CollagePanel collagePanel;
+	public static VideoCollageSeeker videoCollageSeeker;
 	private ArrayList< ArrayList<String>> clusterlist;
 	
 	/**
@@ -87,7 +89,7 @@ public class MyApplication {
 	private void initialize() {
 		frmImageBrowser = new JFrame();
 		frmImageBrowser.setTitle("Image Browser");
-		frmImageBrowser.setBounds(100, 100, 755, 368);
+		frmImageBrowser.setBounds(100, 100, 755, 368 * 2);
 		frmImageBrowser.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		JMenuBar menuBar = new JMenuBar();
@@ -95,15 +97,21 @@ public class MyApplication {
 		
 		JMenu mnMenu = new JMenu("Menu");
 		menuBar.add(mnMenu);
-		frmImageBrowser.getContentPane().setLayout(new GridLayout(0, 2, 5, 5));
+		frmImageBrowser.getContentPane().setLayout(new GridLayout(2, 0, 5, 5));
+		JLayeredPane layeredPane = new JLayeredPane();
+		layeredPane.setLayout(new GridLayout(0, 2, 5, 5));
 		
 		previewPanel = new PreviewPanel();
-		frmImageBrowser.getContentPane().add(previewPanel);
+		layeredPane.add(previewPanel);
 		
 		collagePanel = new CollagePanel(this.previewPanel.previewLabel, this.clusterlist);
 		
 		collagePanel.setAutoscrolls(true);
-		frmImageBrowser.getContentPane().add(collagePanel);
+		layeredPane.add(collagePanel);
+		frmImageBrowser.getContentPane().add(layeredPane);
+		videoCollageSeeker = new VideoCollageSeeker();
+		frmImageBrowser.getContentPane().add(videoCollageSeeker);
+		videoCollageSeeker.setVisible(false);
 	}
 	
 	public static ArrayList<ArrayList<String>> sortMap(HashMap<String, ArrayList<String>> map){

@@ -7,7 +7,6 @@ import java.util.List;
 import java.util.Map;
 
 import javax.swing.ImageIcon;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
@@ -17,13 +16,11 @@ import javax.swing.ScrollPaneConstants;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-public class VideoCollageSeeker {
-
-	private JFrame frame;
-
-	private ArrayList<ImageIcon> video;
-
-	private String videoFileName;
+public class VideoCollageSeeker extends JPanel {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -8718842547412643L;
 
 	private static final Map<String, List<Integer>> keyFrameMap = new HashMap<String, List<Integer>>();
 
@@ -49,46 +46,47 @@ public class VideoCollageSeeker {
 		}
 	}
 	
-	public VideoCollageSeeker(ArrayList<ImageIcon> icons, String string) {
-		this.video = icons;
-		this.videoFileName = string;
+	
+	public VideoCollageSeeker() {
+		super();
+		this.setVisible(false);
 	}
-
-	public void show() {
-		frame = new JFrame("frame seeker");
-		JPanel panel = new JPanel();
-		frame.setBounds(100, 468, 755, 360);
-		frame.getContentPane().add(panel);
-
+	
+	public void display(ArrayList<ImageIcon> videos, String videoFileName) {
+		this.removeAll();
+		this.revalidate();
+		this.repaint();
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane
 				.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
-		panel.add(scrollPane);
+		add(scrollPane);
 		JLayeredPane layeredPane = new JLayeredPane();
 		layeredPane.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		scrollPane.setViewportView(layeredPane);
 		JLayeredPane list = new JLayeredPane();
-		list.setLayout(new GridLayout(0, keyFrameMap.get(this.videoFileName)
+		list.setLayout(new GridLayout(0, keyFrameMap.get(videoFileName)
 				.size(), 0, 0));
 		layeredPane.add(list);
 
-		List<Integer> kframeIndex = keyFrameMap.get(this.videoFileName);
+		List<Integer> kframeIndex = keyFrameMap.get(videoFileName);
 		for (Integer index : kframeIndex) {
-			list.add(new JLabel(this.video.get(index)));
+			list.add(new JLabel(videos.get(index)));
 		}
-		frame.validate();
-		frame.setVisible(true);
+		this.setVisible(true);
 	}
 
 	public void close() {
-		frame.dispose();
+		this.removeAll();
+		this.revalidate();
+		this.repaint();
+		this.setVisible(false);
 	}
 	
 	public static void main(String[] args) {
 		ArrayList<ImageIcon> icons = ImageReader.readVideo(
 				"./dataset/video01.rgb", MyApplication.IMAGE_WIDTH,
 				MyApplication.IMAGE_HEIGHT);
-		new VideoCollageSeeker(icons, "./dataset/video01.rgb").show();
+		new VideoCollageSeeker().display(icons, "./dataset/video01.rgb");
 	}
 
 }
