@@ -98,7 +98,7 @@ public class MyApplication {
 		frmImageBrowser.getContentPane().add(collagePanel);
 	}
 	
-	private static ArrayList<ArrayList<String>> sortMap(HashMap<String, ArrayList<String>> map){
+	public static ArrayList<ArrayList<String>> sortMap(HashMap<String, ArrayList<String>> map){
 		ArrayList<ArrayList<String>> list = new ArrayList<ArrayList<String>>();
 		Iterator<String> iterator = map.keySet().iterator();
 		while(iterator.hasNext()){
@@ -122,7 +122,7 @@ public class MyApplication {
 		});
 		return list;
 	}
-	private static String getJSON(String filename){
+	public static String getJSON(String filename){
 		String jsonStr = "";
 		try {
 			BufferedReader reader = new BufferedReader(new FileReader(filename));
@@ -139,7 +139,7 @@ public class MyApplication {
 		return jsonStr;
 	}
 	
-	private static void json2Map(String jsonStr, HashMap<String, ArrayList<String>> map, String prefix, String numformat){
+	public static void json2Map(String jsonStr, HashMap<String, ArrayList<String>> map, String prefix, String numformat){
 		JSONObject json = new JSONObject(jsonStr);
 		Iterator<?> keys = json.keys();
 		while(keys.hasNext()){
