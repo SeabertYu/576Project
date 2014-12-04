@@ -7,33 +7,121 @@ import javax.swing.JLabel;
 
 //TODO add enter animation
 
-public class ImageIconMouseListener implements MouseListener {
-	public JLabel preview;
-	public ImageLabel icon;
+public class ImageIconMouseListener extends MyMouseListener {
+	private static final int INTERVAL = 200;
+	public ImageLabel label;
 	ArrayList<ImageIcon> video ;
+	private volatile Thread display;
+	private volatile boolean threadSuspended;
 	
-	public ImageIconMouseListener(JLabel preview, ImageLabel icon){
-		this.preview = preview;
-		this.icon = icon;
-		this.video = ImageReader.readVideo(this.icon.imageFile, MyApplication.IMAGE_WIDTH, MyApplication.IMAGE_HEIGHT);
+	public ImageIconMouseListener(JLabel preview, ImageLabel label){
+		super(label, preview);
+		this.label = label;
+		this.video = ImageReader.readVideo(this.label.imageFile, MyApplication.IMAGE_WIDTH, MyApplication.IMAGE_HEIGHT);
 	}
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		if(e.getClickCount() == 2){
-			ImageReader.displayVideo(video, 30, this.preview);
+			if(display == null){
+				start();
+			}
+			else{
+				stop();
+			}
+			
 		}
 		
 	}
 
+	private void start() {
+		display = new Thread(new Runnable(){
+			@Override
+			public void run() {
+				displayVideo();
+			}
+			
+		});
+		display.start();
+		
+	}
+	
+	private void stop(){
+		if(display!= null){
+			synchronized(display){
+				Thread bound = display;
+				display = null;
+				bound.interrupt();
+			}
+		}
+		
+	}
+	private void run(){
+		Thread cur = Thread.currentThread();
+		while(display == cur){
+			try {
+				Thread.sleep(INTERVAL);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+
 	@Override
 	public void mouseEntered(MouseEvent e) {
-		ImageReader.displayImage(video.get(0), this.preview);
+		if(display != null){
+			synchronized(display){
+				this.threadSuspended = false;
+				display.notify();
+			}
+			
+		}
+		super.mouseEntered(e);
 	}
 
 	@Override
 	public void mouseExited(MouseEvent e) {
-		// TODO Auto-generated method stub
+		if(display != null){
+			synchronized(display){
+				this.threadSuspended = true;
+			}
+			
+		}
+		super.mouseExited(e);
+	}
+	
+	private void displayVideo(){
+		displayVideo(video, 30, this.preview);
+	}
+		
+	private void displayVideo(ArrayList<ImageIcon> video, int frameRate, JLabel frame) {
+		System.out.println(video.size());
+		for (ImageIcon image : video) {
+			long start = System.nanoTime();
+			try {
+
+				frame.setIcon(image);
+				long end = System.nanoTime();
+				long deltaTime = end - start;
+				if (1000000000 / frameRate > deltaTime) {
+					long time = 1000000000 / frameRate - deltaTime;
+					Thread.sleep(time/1000000, (int) (time%1000000));
+					if(this.threadSuspended){
+						synchronized(this.display){
+							while(threadSuspended){
+								display.wait();
+							}
+						}
+					}					
+				}
+				long realend = System.nanoTime();
+				System.out.println(1000000000 / (realend - start));
+
+			} catch (InterruptedException e) {
+				System.out.println("paused!");
+				return;
+			}
+		}
 		
 	}
 
@@ -48,4 +136,6 @@ public class ImageIconMouseListener implements MouseListener {
 		// TODO Auto-generated method stub
 		
 	}
+	
+	
 }

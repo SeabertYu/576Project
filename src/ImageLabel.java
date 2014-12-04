@@ -1,28 +1,27 @@
+import java.awt.Image;
 import java.awt.image.BufferedImage;
 
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
 
-public class ImageLabel extends JLabel {
-	public static final int ICON_WIDTH = MyApplication.IMAGE_WIDTH/CollagePanel.COUNT;
-	public static final int ICON_HEIGHT = MyApplication.IMAGE_HEIGHT/CollagePanel.COUNT;
+public class ImageLabel extends MyLabel {
 	
 	public JLabel preview;
 	public String imageFile;
 	public ImageLabel(JLabel preview, String filename){
 		this.preview = preview;
-		BufferedImage image = new BufferedImage(ICON_WIDTH, ICON_HEIGHT, BufferedImage.TYPE_INT_RGB);
-		this.setIcon(new ImageIcon(image));
-		//default
 		this.setImage(filename);
 		this.addMouseListener(new ImageIconMouseListener(this.preview, this));
 	}
 	
 	public void setImage(String image){
 		this.imageFile = image;
-		this.setIcon(new ImageIcon(ImageReader.readVideo(image, ICON_WIDTH, ICON_HEIGHT).get(0).getImage()));
+		this.fullImage = (BufferedImage) ImageReader.readVideo(image, MyApplication.IMAGE_WIDTH, MyApplication.IMAGE_HEIGHT).get(0).getImage();
+		makeIcons(fullImage);
+		this.setIcon(this.solidIcon);
 	}
+	
 	
 	
 	/**

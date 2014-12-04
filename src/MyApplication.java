@@ -9,6 +9,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.List;
 
 import javax.swing.JFrame;
 import javax.swing.JMenu;
@@ -29,6 +30,7 @@ public class MyApplication {
 	public static final String VIDEO_NUM = "%02d";
 	public static final String EXT = ".rgb";
 	public static final String FOLDER = "./dataset/";
+	public static final String HEAD_CLUSTER_ID = "-2";
 
 	private JFrame frmImageBrowser;
 	private PreviewPanel previewPanel;
@@ -46,8 +48,15 @@ public class MyApplication {
 		json2Map(imageJSON, map, IMAGE_FILE, IMAGE_NUM);
 		json2Map(videoJSON, map, VIDEO_FILE, VIDEO_NUM);
 		
-		//sort list
+		// remove head cluster
+		ArrayList<String> headCluster = map.remove(HEAD_CLUSTER_ID);
+		//sort list		
 		ArrayList<ArrayList<String>> list = sortMap(map);		
+		list = ClusterFactory.mergeCluster(list, 33);
+		// add back in head cluster
+		if (headCluster != null) {
+			list.add(headCluster);
+		}
 		final ArrayList<ArrayList<String>> finalList = new ArrayList<ArrayList<String>>(list);
 		for(ArrayList<String> l:list){
 			System.out.println(l.size());
@@ -98,7 +107,7 @@ public class MyApplication {
 		frmImageBrowser.getContentPane().add(collagePanel);
 	}
 	
-	private static ArrayList<ArrayList<String>> sortMap(HashMap<String, ArrayList<String>> map){
+	public static ArrayList<ArrayList<String>> sortMap(HashMap<String, ArrayList<String>> map){
 		ArrayList<ArrayList<String>> list = new ArrayList<ArrayList<String>>();
 		Iterator<String> iterator = map.keySet().iterator();
 		while(iterator.hasNext()){
@@ -122,7 +131,7 @@ public class MyApplication {
 		});
 		return list;
 	}
-	private static String getJSON(String filename){
+	public static String getJSON(String filename){
 		String jsonStr = "";
 		try {
 			BufferedReader reader = new BufferedReader(new FileReader(filename));
@@ -139,7 +148,7 @@ public class MyApplication {
 		return jsonStr;
 	}
 	
-	private static void json2Map(String jsonStr, HashMap<String, ArrayList<String>> map, String prefix, String numformat){
+	public static void json2Map(String jsonStr, HashMap<String, ArrayList<String>> map, String prefix, String numformat){
 		JSONObject json = new JSONObject(jsonStr);
 		Iterator<?> keys = json.keys();
 		while(keys.hasNext()){

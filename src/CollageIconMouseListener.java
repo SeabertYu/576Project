@@ -7,14 +7,12 @@ import javax.swing.JLabel;
 import javax.swing.border.LineBorder;
 
 //TODO click to open collage
-public class CollageIconMouseListener implements MouseListener {
-	
-	public JLabel preview;
+public class CollageIconMouseListener extends MyMouseListener {
 	public CollageLabel label;
 	public CollagePanel collagePanel;
 	
 	public CollageIconMouseListener(JLabel preview, CollageLabel collageLabel, CollagePanel collagePanel) {
-		this.preview = preview;
+		super(collageLabel, preview);
 		this.label = collageLabel;
 		this.collagePanel = collagePanel;
 	}
@@ -32,14 +30,13 @@ public class CollageIconMouseListener implements MouseListener {
 	@Override
 	public void mouseEntered(MouseEvent arg0) {
 		// TODO Auto-generated method stub
-		ImageReader.displayImage(new ImageIcon(label.fullImage), this.preview);
-		highlight();
+		super.mouseEntered(arg0);
 	}
 
 	@Override
 	public void mouseExited(MouseEvent arg0) {
 		// TODO Auto-generated method stub
-		lowlight();
+		super.mouseExited(arg0);
 	}
 
 	@Override
@@ -54,15 +51,6 @@ public class CollageIconMouseListener implements MouseListener {
 
 	}
 	
-	private void highlight(){
-//		this.label.setBorder(new LineBorder(Color.ORANGE));
-		this.label.setIcon(this.label.transIcon);
-	}
-	
-	private void lowlight(){
-//		this.label.setBorder(null);
-		this.label.setIcon((this.label.solidIcon));
-	}
 
 	/**
 	 * @param args

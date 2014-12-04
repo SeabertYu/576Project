@@ -7,28 +7,18 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
 
-public class CollageLabel extends JLabel {
-	public static final int ICON_WIDTH = ImageLabel.ICON_WIDTH;
-	public static final int ICON_HEIGHT = ImageLabel.ICON_HEIGHT;
+public class CollageLabel extends MyLabel {
 	
 	public JLabel preview;
 	public String imageFile;
 	public ArrayList<ArrayList<String>> list;
-	public BufferedImage fullImage;
-	private CollagePanel collagePanel;
-	public ImageIcon solidIcon;
-	public ImageIcon transIcon;
 	
 	public CollageLabel(CollagePanel collagePanel, JLabel preview, ArrayList<ArrayList<String>> list){
 		this.preview = preview;
 		this.list = list;
-		this.collagePanel = collagePanel;
 		
 		this.fullImage = ImageReader.generateCollage(list, MyApplication.IMAGE_WIDTH, MyApplication.IMAGE_HEIGHT);
-		Image scaledImage = this.fullImage.getScaledInstance(ICON_WIDTH, ICON_HEIGHT, Image.SCALE_DEFAULT);	
-		//default
-		this.solidIcon = new ImageIcon(scaledImage);
-		this.transIcon = new ImageIcon(ImageReader.makeTransparent(scaledImage));
+		makeIcons(this.fullImage);
 		this.setIcon(this.solidIcon);
 		this.addMouseListener(new CollageIconMouseListener(this.preview, this, collagePanel));
 		
