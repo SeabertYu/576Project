@@ -196,6 +196,7 @@ def main(mlen, k, r):
                 if candidates[cand] > max_score:
                     max_score = candidates[cand]
                     max_cluster_id = cand
+            video_cluster[i-1] = max_cluster_id
             print "video " + str(i) + " belong to " + str(max_cluster_id) + " with score " + str(max_score)
 
         for t in threads:
@@ -243,8 +244,41 @@ def findbest():
     pickle.dump(max_video_cluster, open("video_cluster.pickle", "w+"))
     json.dump(array2json(max_video_cluster), open("video_cluster.json", "w+"))
 
+def naive_main():
+    clz = pickle.load(open("image_cluster.pickle", "r"))
+    basedir = "/Users/apple/graduate/Courses/576 Multimedia/workspace/ImageClustering/frame/"
+    imgsdir = "/Users/apple/graduate/Courses/576 Multimedia/workspace/ImageClustering/img/unclustered"
+    kframes = preprocess(build_k_frames(), 299, 1)
+    clz2ImgIndex = clz2dic(clz)
+    all_img = get_all_imgs(imgsdir)
+    video_cluster = [0 for i in range(10)]
+    for i in range(1, 11):
+        print "cmp video " + str(i)
+        d = basedir + str(i)
+        fi = kframes[i]
+        frames = [cv2.imread(d + "/" + str(ffi) + ".jpg") for ffi in fi]
+        max_score = 0.0
+        max_cluster_id = -1
+        for clz in clz2ImgIndex.keys():
+            inds = clz2ImgIndex[clz]
+            score = 0.0
+            for ind in inds:
+                temp = 0
+                for frame in frames:
+                    m, k1, k2 = match(all_img[ind], frame)
+                    temp += m
+                score += temp / len(frames)
+            if score / len(inds) > max_score:
+                max_score = score / len(inds)
+                max_cluster_id = clz
+        video_cluster[i-1] = max_cluster_id
+        print "video " + str(i) + " belong to " + str(max_cluster_id) + " with score " + str(max_score)
+    return video_cluster, clz2ImgIndex
+
 if __name__  == "__main__":
     # img1 = cv2.imread("/Users/apple/graduate/Courses/576 Multimedia/workspace/ImageClustering/frame/1/0.jpg")
     # img2 = cv2.imread("/Users/apple/graduate/Courses/576 Multimedia/workspace/ImageClustering/img/unclustered/image009.jpg")
     # print match(img1,img2)
-    findbest()
+    # findbest()
+    video_cluster, image_cluster = naive_main()
+    eval.eval_video(video_cluster, image_cluster)

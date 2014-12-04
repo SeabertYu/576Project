@@ -161,16 +161,22 @@ def array2json(clz):
         c[cs].append(i)
     return c
 
+def matching2json(matching):
+    jarray = {}
+    for i in range(len(matching) - 1):
+        for j in range(i+1, len(matching[i]) - 1):
+            jarray[str(i)] = {}
+            t = matching[i][j]
+            # print t
+            jarray[str(i)][str(j)] = {"matched":str(t[0]), "SIFT1":str(t[1]), "SIFT2":str(t[2])}
+    return jarray
+
 if __name__ == "__main__":
     # dirpath = "/Users/apple/graduate/Courses/576 Multimedia/workspace/ImageClustering/img/unclustered/"
     mat = "matching.txt"
     matching = pickle.load(open(mat, "rb"))
-    i,k,m = main(matching, False)
-    e,f,clz = cluster(matching, i, k, True)
-    pickle.dump(clz, open("square_image_cluster.pickle", "w+"))
-    jc = array2json(clz)
-    print jc
-    out = "square_image_cluster.json"
-    json.dump(jc, open(out, "w+"))
+    print len(matching)
+    jarray = matching2json(matching)
+    json.dump(jarray, open("matching.json", "w+"))
 
 
