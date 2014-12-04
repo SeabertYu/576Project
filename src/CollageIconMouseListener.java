@@ -55,11 +55,13 @@ public class CollageIconMouseListener implements MouseListener {
 	}
 	
 	private void highlight(){
-		this.label.setBorder(new LineBorder(Color.ORANGE));
+//		this.label.setBorder(new LineBorder(Color.ORANGE));
+		this.label.setIcon(this.label.transIcon);
 	}
 	
 	private void lowlight(){
-		this.label.setBorder(null);
+//		this.label.setBorder(null);
+		this.label.setIcon((this.label.solidIcon));
 	}
 
 	/**

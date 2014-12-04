@@ -1,4 +1,7 @@
+import java.awt.AlphaComposite;
 import java.awt.BorderLayout;
+import java.awt.Graphics2D;
+import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.FileInputStream;
@@ -58,6 +61,15 @@ public class ImageReader {
 			window.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		}
 		frame.setIcon(image);
+	}
+	
+	public static BufferedImage makeTransparent(Image image){
+		BufferedImage result = new BufferedImage(image.getWidth(null), image.getHeight(null), BufferedImage.TYPE_INT_ARGB);
+		Graphics2D g2 = result.createGraphics();
+		AlphaComposite ac = AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 0.7f);
+		g2.setComposite(ac);
+		g2.drawImage(image, 0, 0, null);
+		return result;
 	}
 	
 	/**

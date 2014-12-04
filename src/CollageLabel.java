@@ -16,6 +16,8 @@ public class CollageLabel extends JLabel {
 	public ArrayList<ArrayList<String>> list;
 	public BufferedImage fullImage;
 	private CollagePanel collagePanel;
+	public ImageIcon solidIcon;
+	public ImageIcon transIcon;
 	
 	public CollageLabel(CollagePanel collagePanel, JLabel preview, ArrayList<ArrayList<String>> list){
 		this.preview = preview;
@@ -23,8 +25,11 @@ public class CollageLabel extends JLabel {
 		this.collagePanel = collagePanel;
 		
 		this.fullImage = ImageReader.generateCollage(list, MyApplication.IMAGE_WIDTH, MyApplication.IMAGE_HEIGHT);
+		Image scaledImage = this.fullImage.getScaledInstance(ICON_WIDTH, ICON_HEIGHT, Image.SCALE_DEFAULT);	
 		//default
-		this.setIcon(new ImageIcon(this.fullImage.getScaledInstance(ICON_WIDTH, ICON_HEIGHT, Image.SCALE_DEFAULT)));
+		this.solidIcon = new ImageIcon(scaledImage);
+		this.transIcon = new ImageIcon(ImageReader.makeTransparent(scaledImage));
+		this.setIcon(this.solidIcon);
 		this.addMouseListener(new CollageIconMouseListener(this.preview, this, collagePanel));
 		
 	}
