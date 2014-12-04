@@ -2,6 +2,7 @@ __author__ = 'Boyang'
 from math import *
 from os import listdir
 from PIL import Image
+import operator
 
 HEIGHT = 288
 WIDTH = 352
@@ -11,9 +12,14 @@ JPG_FOLDER = "./JPG/"
 
 def printEntropy():
     counter = 1
+    result = {}
     for file in listdir(FOLDER):
-        print(counter, " : ", getEntropy(file))
+        entropy = getEntropy(file)
+        #print(counter, " : ", entropy)
+        result[counter] = entropy
         counter += 1
+    sorted_d = sorted(result.items(), key=operator.itemgetter(1))
+    print sorted_d
 
 
 def getEntropy(file):
