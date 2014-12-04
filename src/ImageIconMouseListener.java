@@ -1,5 +1,4 @@
 import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 import java.util.ArrayList;
 
 import javax.swing.ImageIcon;
@@ -13,11 +12,16 @@ public class ImageIconMouseListener extends MyMouseListener {
 	ArrayList<ImageIcon> video ;
 	private volatile Thread display;
 	private volatile boolean threadSuspended;
+	private VideoCollageSeeker seeker;
 	
 	public ImageIconMouseListener(JLabel preview, ImageLabel label){
 		super(label, preview);
 		this.label = label;
 		this.video = ImageReader.readVideo(this.label.imageFile, MyApplication.IMAGE_WIDTH, MyApplication.IMAGE_HEIGHT);
+		System.out.println(this.label.imageFile);
+		if (!this.label.imageFile.contains(MyApplication.IMAGE_FILE)) {
+			this.seeker = new VideoCollageSeeker(video, this.label.imageFile);
+		}
 	}
 
 	@Override
@@ -43,7 +47,9 @@ public class ImageIconMouseListener extends MyMouseListener {
 			
 		});
 		display.start();
-		
+		if (seeker != null) {
+			seeker.show();
+		}
 	}
 	
 	private void stop(){
@@ -52,6 +58,9 @@ public class ImageIconMouseListener extends MyMouseListener {
 				Thread bound = display;
 				display = null;
 				bound.interrupt();
+			}
+			if (seeker != null) {
+				this.seeker.close();
 			}
 		}
 		
