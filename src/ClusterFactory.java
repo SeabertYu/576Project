@@ -18,6 +18,8 @@ public class ClusterFactory {
 
 	public static final int KEY_IMAGE_THRESHOLD = 5;
 
+	private static Map<String, Map<String, Matching>> cachedMatchingMatrix = null;
+
 	public static final class Matching {
 		private int sift1;
 		private int sift2;
@@ -52,11 +54,14 @@ public class ClusterFactory {
 
 	/**
 	 * 
-	 * @return the SIFT matching matrix 
+	 * @return the SIFT matching matrix
 	 */
 	public static Map<String, Map<String, Matching>> getMatching() {
+		if (cachedMatchingMatrix != null) {
+			return cachedMatchingMatrix;
+		}
 		String jsonString = MyApplication.getJSON(MATCHING);
-		Map<String, Map<String, Matching>> matching = new HashMap<String, Map<String, Matching>>();
+		cachedMatchingMatrix = new HashMap<String, Map<String, Matching>>();
 		JSONObject object = new JSONObject(jsonString);
 		Iterator keys = object.keys();
 		while (keys.hasNext()) {
@@ -77,27 +82,27 @@ public class ClusterFactory {
 								Integer.parseInt(img2) + 1) + MyApplication.EXT,
 						matchingBean);
 			}
-			matching.put(
+			cachedMatchingMatrix.put(
 					MyApplication.FOLDER
 							+ MyApplication.IMAGE_FILE
 							+ String.format(MyApplication.IMAGE_NUM,
 									Integer.parseInt(img1) + 1)
 							+ MyApplication.EXT, mm);
 		}
-		return matching;
+		return cachedMatchingMatrix;
 	}
 
 	/**
-	 * select key images for each cluster in given cluster of images.  
+	 * select key images for each cluster in given cluster of images.
 	 * 
 	 * @param cluster2Img
 	 * @param matching
 	 * @return key images associated with each given cluster
 	 */
 	public static Map<String, List<String>> selectKeyImages(
-			Map<String, ArrayList<String>> cluster2Img,
-			Map<String, Map<String, Matching>> matching) {
+			Map<String, ArrayList<String>> cluster2Img) {
 		Set<String> clusters = cluster2Img.keySet();
+		Map<String, Map<String, Matching>> matching = getMatching();
 		Map<String, List<String>> keyImageCluster = new HashMap<String, List<String>>();
 		for (String cluster : clusters) {
 			List<String> imgs = cluster2Img.get(cluster);
@@ -114,14 +119,16 @@ public class ClusterFactory {
 		while (index < imgs.size()) {
 			int next = index + 1;
 			if (next == imgs.size() - 1) {
-				Matching mat = matching.get(imgs.get(index)).get(imgs.get(next));
+				Matching mat = matching.get(imgs.get(index))
+						.get(imgs.get(next));
 				if (mat.matched < KEY_IMAGE_THRESHOLD) {
 					result.add(imgs.get(next));
 				}
 				break;
 			}
 			while (next < imgs.size()) {
-				Matching mat = matching.get(imgs.get(index)).get(imgs.get(next));
+				Matching mat = matching.get(imgs.get(index))
+						.get(imgs.get(next));
 				if (mat.matched > KEY_IMAGE_THRESHOLD) {
 					next++;
 				} else {
@@ -138,19 +145,22 @@ public class ClusterFactory {
 		return result;
 	}
 
+	public static void mergeCluster(ArrayList<ArrayList<String>> clusters,
+			int targetClusterSize) {
+
+	}
+
 	public static void main(String[] args) {
-		// get the matching matrix
-		Map<String, Map<String, Matching>> map = getMatching();
 		// get the image cluster
 		HashMap<String, ArrayList<String>> cluster = new HashMap<String, ArrayList<String>>();
 		String imageJSON = MyApplication.getJSON(MyApplication.IMAGE_CLUSTER);
 		MyApplication.json2Map(imageJSON, cluster, MyApplication.IMAGE_FILE,
 				MyApplication.IMAGE_NUM);
 		// select key images for each cluster
-		Map<String, List<String>> key = selectKeyImages(cluster, map);
+		Map<String, List<String>> key = selectKeyImages(cluster);
 		for (String k : key.keySet()) {
 			if (cluster.get(k).size() == key.get(k).size()) {
-				System.out.print(k+"## ");
+				System.out.print(k + "## ");
 				for (String v : cluster.get(k)) {
 					System.out.print(v + ",,,,");
 				}
