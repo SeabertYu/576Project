@@ -164,11 +164,12 @@ def array2json(clz):
 def matching2json(matching):
     jarray = {}
     for i in range(len(matching) - 1):
+        a = {}
         for j in range(i+1, len(matching[i]) - 1):
-            jarray[str(i)] = {}
             t = matching[i][j]
             # print t
-            jarray[str(i)][str(j)] = {"matched":str(t[0]), "SIFT1":str(t[1]), "SIFT2":str(t[2])}
+            a[str(j)] = {"matched":str(t[0]), "SIFT1":str(t[1]), "SIFT2":str(t[2])}
+        jarray[str(i)] = a
     return jarray
 
 if __name__ == "__main__":
