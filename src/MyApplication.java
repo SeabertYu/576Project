@@ -9,6 +9,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.List;
 
 import javax.swing.JFrame;
 import javax.swing.JMenu;
@@ -29,6 +30,7 @@ public class MyApplication {
 	public static final String VIDEO_NUM = "%02d";
 	public static final String EXT = ".rgb";
 	public static final String FOLDER = "./dataset/";
+	public static final String HEAD_CLUSTER_ID = "-2";
 
 	private JFrame frmImageBrowser;
 	private PreviewPanel previewPanel;
@@ -46,8 +48,15 @@ public class MyApplication {
 		json2Map(imageJSON, map, IMAGE_FILE, IMAGE_NUM);
 		json2Map(videoJSON, map, VIDEO_FILE, VIDEO_NUM);
 		
-		//sort list
+		// remove head cluster
+		ArrayList<String> headCluster = map.remove(HEAD_CLUSTER_ID);
+		//sort list		
 		ArrayList<ArrayList<String>> list = sortMap(map);		
+		list = ClusterFactory.mergeCluster(list, 33);
+		// add back in head cluster
+		if (headCluster != null) {
+			list.add(headCluster);
+		}
 		final ArrayList<ArrayList<String>> finalList = new ArrayList<ArrayList<String>>(list);
 		for(ArrayList<String> l:list){
 			System.out.println(l.size());

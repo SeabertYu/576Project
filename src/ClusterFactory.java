@@ -1,4 +1,6 @@
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
@@ -145,12 +147,112 @@ public class ClusterFactory {
 		return result;
 	}
 
-	public static void mergeCluster(ArrayList<ArrayList<String>> clusters,
+	/**
+	 * merge the cluster so that the size of clusters will be equal to the given target cluster size. 
+	 * 
+	 * @param clusters
+	 * @param targetClusterSize
+	 * @return merged cluster
+	 */
+	public static ArrayList<ArrayList<String>> mergeCluster(ArrayList<ArrayList<String>> clusters,
 			int targetClusterSize) {
+		if (targetClusterSize == clusters.size()) {
+			return clusters;
+		}
+		ArrayList<ArrayList<String>> mergedClusters = new ArrayList<ArrayList<String>>();
+		if (targetClusterSize == 1) {
+			for (ArrayList<String> cluster : clusters) {
+				mergedClusters.add(cluster);
+			}
+			return mergedClusters;
+		}
+		
+		Collections.sort(clusters, new Comparator<ArrayList<String>>() {
 
+			@Override
+			public int compare(ArrayList<String> o1, ArrayList<String> o2) {
+				return o1.size() - o2.size();
+			}
+		});
+		
+		// start merging clusters
+		for (int i = 0; i < targetClusterSize; i++) {
+			mergedClusters.add(clusters.get(i));
+		}
+		
+		int decreasedSize = clusters.size() - targetClusterSize;
+		int k = 1;
+		while (k <= decreasedSize) {
+			ArrayList<String> mergingCluster = clusters.get(clusters.size() - k);
+			Map<Integer, Double> scores = new HashMap<Integer,Double>();
+			for (int i = 0; i < targetClusterSize; i++) {
+				scores.put(i, distance(clusters.get(i), mergingCluster));
+			}
+			// merge into the cluster with highest score
+			double heighstScore = 0;
+			int toIndex = -1;
+			Set<Integer> candidates = scores.keySet();
+			for (Integer cand : candidates) {
+				if (scores.get(cand) > heighstScore) {
+					heighstScore = scores.get(cand);
+					toIndex = cand;
+				}
+			}
+			mergedClusters.get(toIndex).addAll(mergingCluster);
+			k++;
+		}
+		
+		return mergedClusters;
 	}
 
+	private static double distance(ArrayList<String> cluster1, ArrayList<String> cluster2) {
+		double score = 0.0;
+		int videoCount1 = 0;
+		int videoCount2 = 0;
+		videoCount1 = getNumberOfVideo(cluster1);
+		videoCount2 = getNumberOfVideo(cluster2);
+		Map<String, Map<String, Matching>> matching = getMatching();
+		for (String img1 : cluster1) {
+			if (img1.contains(MyApplication.VIDEO_FILE)) {
+				continue;
+			}
+			for (String img2 : cluster2) {
+				if (img2.contains(MyApplication.VIDEO_FILE)) {
+					continue;
+				}
+				if (matching.get(img1).containsKey(img2)) {
+					score += matching.get(img1).get(img2).matched;
+				} else {
+					score += matching.get(img2).get(img1).matched;
+				}
+			}
+		}
+		return score / ((cluster1.size() - videoCount1) * (cluster2.size() - videoCount2));
+	}
+
+	private static int getNumberOfVideo(ArrayList<String> cluster) {
+		int video = 0;
+		for (String img1 : cluster) {
+			if (img1.contains(MyApplication.VIDEO_FILE)) {
+				video++;
+			}
+		}
+		return video;
+	}
+	
 	public static void main(String[] args) {
+		String imageJSON = MyApplication.getJSON(MyApplication.IMAGE_CLUSTER);
+		HashMap<String, ArrayList<String>> map = new HashMap<String, ArrayList<String>>();
+		
+		MyApplication.json2Map(imageJSON, map, MyApplication.IMAGE_FILE, MyApplication.IMAGE_NUM);
+		//sort list
+		ArrayList<ArrayList<String>> list = MyApplication.sortMap(map);
+		
+		ArrayList<ArrayList<String>> mergerdCluster = mergeCluster(list, 20);
+		System.out.println(mergerdCluster.size());
+	}
+
+	private static void testSelectKeyImage() {
 		// get the image cluster
 		HashMap<String, ArrayList<String>> cluster = new HashMap<String, ArrayList<String>>();
 		String imageJSON = MyApplication.getJSON(MyApplication.IMAGE_CLUSTER);
