@@ -7,6 +7,8 @@ import javax.swing.JLabel;
 //TODO add enter animation
 
 public class ImageIconMouseListener extends MyMouseListener {
+	public static LRU cache = new LRU(LRU.SIZE);
+	
 	public ImageLabel label;
 	ArrayList<ImageIcon> video;
 	private volatile VideoPlayer player;
@@ -32,12 +34,19 @@ public class ImageIconMouseListener extends MyMouseListener {
 					
 				});
 				loadImage.start();*/
-				video = ImageReader.readVideo(label.imageFile,
-						MyApplication.IMAGE_WIDTH, MyApplication.IMAGE_HEIGHT);
-				System.out.println(label.imageFile);
+				if(cache.containsKey(label.imageFile)){
+					video = cache.get(label.imageFile);
+				}
+				else{
+					video = ImageReader.readVideo(label.imageFile,
+							MyApplication.IMAGE_WIDTH, MyApplication.IMAGE_HEIGHT);
+					cache.put(label.imageFile, video);
+					System.out.println(label.imageFile);
+				}
+				
 				
 			}
-			if (this.label.imageFile.contains(MyApplication.IMAGE_FILE)) {
+			if (ImageReader.isImage(this.label.imageFile)) {
 				VideoPlayer.closeIfExist();
 				MyApplication.videoCollageSeeker.close();
 				return;
@@ -60,10 +69,10 @@ public class ImageIconMouseListener extends MyMouseListener {
 
 	@Override
 	public void mouseEntered(MouseEvent e) {
-		if(this.video == null){
+		if(ImageReader.isImage(this.label.imageFile)||this.video == null){
 			ImageReader.displayImage(this.fullIcon, this.preview);
 		}
-		else if (this.label.imageFile.contains(MyApplication.VIDEO_FILE) || player != null && player.isVideoSuspended()) {
+		else if (ImageReader.isVideo(this.label.imageFile) || player != null && player.isVideoSuspended()) {
 			ImageReader.displayImage(video.get(player.getFrameIndex()), this.preview);
 		}
 		super.mouseEntered(e);

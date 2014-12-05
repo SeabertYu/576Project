@@ -1,5 +1,6 @@
 import java.awt.AlphaComposite;
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.image.BufferedImage;
@@ -10,6 +11,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 
+import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -17,9 +19,15 @@ import javax.swing.SwingConstants;
 import javax.swing.WindowConstants;
 
 public class ImageReader {
-	public final static int WIDTH = MyApplication.IMAGE_WIDTH;
-	public final static int HEIGHT = MyApplication.IMAGE_HEIGHT;
+	public static final int WIDTH = MyApplication.IMAGE_WIDTH;
+	public static final int HEIGHT = MyApplication.IMAGE_HEIGHT;
+	public static final String VIDEO_LABEL_PLAY = "./src/play.png";
+	
 	static int SIZE = HEIGHT * WIDTH;
+	private static Image videoLabelPlay = null;
+	private static int videoLabelPlayX = 0;
+	private static int videoLabelPlayY = 0;
+
 	
 	
 	public static synchronized void displayImage(ImageIcon image, JLabel frame){
@@ -45,6 +53,29 @@ public class ImageReader {
 		return result;
 	}
 	
+	public static BufferedImage addVideoLabel(Image image){
+		if(videoLabelPlay == null){
+			try {
+			    videoLabelPlay = ImageIO.read(new File(VIDEO_LABEL_PLAY));
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			int h = videoLabelPlay.getHeight(null);
+			int w = videoLabelPlay.getWidth(null);
+			int H = image.getHeight(null);
+			int W = image.getWidth(null);
+			videoLabelPlayX = (W-w)/2;
+			videoLabelPlayY = (H-h)/2;
+		}
+		BufferedImage result = new BufferedImage(image.getWidth(null), image.getHeight(null), BufferedImage.TYPE_INT_ARGB);
+		Graphics2D g2 = result.createGraphics();
+		g2.drawImage(image, 0, 0, null);
+		g2.drawImage(videoLabelPlay, videoLabelPlayX, videoLabelPlayY, null);
+		
+		return result;
+	}
+	
+	
 	/**
 	 * 
 	 * @param map
@@ -52,11 +83,12 @@ public class ImageReader {
 	 * @param height: collage height
 	 * @return
 	 */
-	public static BufferedImage generateCollage(// TODO debug!
+	public static BufferedImage generateCollage(
 			ArrayList<ArrayList<String>> map, int width,
 			int height) {
 		printMap(map);
 		BufferedImage result = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
+		initializeImage(result);
 		ArrayList<String> imagelist = new ArrayList<String>();
 		int num = 0;
 		if(map.size()>0){//2x2
@@ -143,6 +175,15 @@ public class ImageReader {
 		
 		return result;
 	}
+	private static void initializeImage(BufferedImage image){
+		int h = image.getHeight();
+		int w = image.getWidth();
+		for(int x = 0; x<w; x++){
+			for(int y = 0; y<h; y++){
+				image.setRGB(x, y, Color.LIGHT_GRAY.getRGB());
+			}
+		}
+	}
 	
 	private static void printMap(ArrayList<ArrayList<String>> map) {
 		System.out.println("Current Collage:===============================");
@@ -152,11 +193,22 @@ public class ImageReader {
 		System.out.println("===============================================");
 	}
 	public static ImageIcon readImage(String filename, int width, int height){
-		return readVideo(filename, width, height, 1).get(0);
+		Image result = readVideo(filename, width, height, 1).get(0).getImage();
+		if(isVideo(filename)){
+			result = addVideoLabel(result);
+		}
+		return new ImageIcon(result);
 	}
 	public static ArrayList<ImageIcon> readVideo(String filename, int width,
 			int height){
 		return readVideo(filename, width, height, -1);
+	}
+	
+	public static boolean isImage(String imageFile){
+		return imageFile.contains(MyApplication.IMAGE_FILE);
+	}
+	public static boolean isVideo(String imageFile){
+		return imageFile.contains(MyApplication.VIDEO_FILE);
 	}
 
 	public static ArrayList<ImageIcon> readVideo(String filename, int width,

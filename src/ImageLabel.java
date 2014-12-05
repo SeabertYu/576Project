@@ -1,10 +1,13 @@
+import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 
+import javax.imageio.ImageIO;
 import javax.swing.JLabel;
 
 
 public class ImageLabel extends MyLabel {
-	
 	public JLabel preview;
 	public String imageFile;
 	public ImageLabel(JLabel preview, String filename){

@@ -25,11 +25,13 @@ import javax.swing.border.LineBorder;
 public class CollagePanel extends JPanel {
 	public static final int COUNT = 4;
 	public static final int THRESHOLD = 2;//threshold for merging clusters
+	
 	private JScrollPane scrollPane;
 	private JLayeredPane layeredPane;
 	private JLabel preview;
 	private ArrayList<ArrayList<String>> lists;
 	private Stack<Component> comStack = new Stack<Component>();
+	
 	/**
 	 * Create the panel.
 	 */
