@@ -142,7 +142,10 @@ public class VideoPlayer {
 	public void setFrameIndex(int index) {
 		this.frameIndex.set(index);
 	}
-	
+	public int getFrameIndex() {
+		return frameIndex.get();
+	}
+
 	public boolean isVideoSuspended() {
 		return suspendVideo;
 	}

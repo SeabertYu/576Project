@@ -45,9 +45,14 @@ public class ImageIconMouseListener extends MyMouseListener {
 
 	@Override
 	public void mouseEntered(MouseEvent e) {
-		if (this.label.imageFile.contains(MyApplication.IMAGE_FILE) || player == null || player.isFinished()) {
-			super.mouseEntered(e);
+		
+		// video, display current frame 
+		if (this.label.imageFile.contains(MyApplication.VIDEO_FILE) || player != null && player.isVideoSuspended()) {
+			ImageReader.displayImage(video.get(player.getFrameIndex()), this.preview);
+			highlight();
+			return;
 		}
+		super.mouseEntered(e);
 	}
 
 	@Override
