@@ -52,7 +52,7 @@ public class VideoCollageSeeker extends JPanel {
 		this.setVisible(false);
 	}
 	
-	public void display(ArrayList<ImageIcon> videos, String videoFileName) {
+	public void display(ArrayList<ImageIcon> videos, String videoFileName, VideoPlayer player) {
 		this.removeAll();
 		this.revalidate();
 		this.repaint();
@@ -70,7 +70,9 @@ public class VideoCollageSeeker extends JPanel {
 
 		List<Integer> kframeIndex = keyFrameMap.get(videoFileName);
 		for (Integer index : kframeIndex) {
-			list.add(new JLabel(videos.get(index)));
+			JLabel frameLabel = new JLabel(videos.get(index));
+			frameLabel.addMouseListener(new FrameClickListener(player, index));
+			list.add(frameLabel);
 		}
 		this.setVisible(true);
 	}
@@ -79,14 +81,13 @@ public class VideoCollageSeeker extends JPanel {
 		this.removeAll();
 		this.revalidate();
 		this.repaint();
-		this.setVisible(false);
 	}
 	
 	public static void main(String[] args) {
 		ArrayList<ImageIcon> icons = ImageReader.readVideo(
 				"./dataset/video01.rgb", MyApplication.IMAGE_WIDTH,
 				MyApplication.IMAGE_HEIGHT);
-		new VideoCollageSeeker().display(icons, "./dataset/video01.rgb");
+//		new VideoCollageSeeker().display(icons, "./dataset/video01.rgb");
 	}
 
 }
