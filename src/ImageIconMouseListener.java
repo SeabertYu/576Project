@@ -22,7 +22,7 @@ public class ImageIconMouseListener extends MyMouseListener {
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		if (e.getClickCount() == 2) {
-			if (player == null) {
+			if (player == null || player.isFinished()) {
 				if (!this.label.imageFile.contains(MyApplication.IMAGE_FILE)) {
 					MyApplication.videoCollageSeeker.display(video,
 							this.label.imageFile);

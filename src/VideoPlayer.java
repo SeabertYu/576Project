@@ -72,8 +72,12 @@ public class VideoPlayer {
 				return;
 			}
 		}
+		this.display = null;
 	}
-
+	
+	public boolean isFinished(){
+		return this.display == null;
+	}
 	public boolean isThreadSuspended() {
 		return threadSuspended;
 	}
