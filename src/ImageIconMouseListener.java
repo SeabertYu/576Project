@@ -21,45 +21,37 @@ public class ImageIconMouseListener extends MyMouseListener {
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
-		if (e.getClickCount() == 2) {
-			if (player == null || player.isFinished()) {
+		if (e.getClickCount() == 1) {
+			if (this.label.imageFile.contains(MyApplication.IMAGE_FILE)) {
+				VideoPlayer.closeIfExist();
+				MyApplication.videoCollageSeeker.close();
+				return;
+			}
+			if (player != null && player.isVideoSuspended()) {
+				player.start();
+			} else if (player == null || player.isFinished()) {
+				player = VideoPlayer.acquireVideoPlayer(label, preview, video);
 				if (!this.label.imageFile.contains(MyApplication.IMAGE_FILE)) {
 					MyApplication.videoCollageSeeker.display(video,
-							this.label.imageFile);
+							this.label.imageFile, player);
 				}
-				player = new VideoPlayer(label, preview, video);
 				player.start();
 			} else {
-				if (!this.label.imageFile.contains(MyApplication.IMAGE_FILE)) {
-					MyApplication.videoCollageSeeker.close();
-				}
-				player.stop();
+				player.suspend();
 			}
-
 		}
 
 	}
 
 	@Override
 	public void mouseEntered(MouseEvent e) {
-		if (player != null) {
-			if (player.display != null) {
-				synchronized (player.display) {
-					player.setThreadSuspended(false);
-					player.display.notify();
-				}
-			}
+		if (this.label.imageFile.contains(MyApplication.IMAGE_FILE) || player == null || player.isFinished()) {
+			super.mouseEntered(e);
 		}
-		super.mouseEntered(e);
 	}
 
 	@Override
 	public void mouseExited(MouseEvent e) {
-		if (player != null) {
-			synchronized (player) {
-				player.setThreadSuspended(true);
-			}
-		}
 		super.mouseExited(e);
 	}
 
