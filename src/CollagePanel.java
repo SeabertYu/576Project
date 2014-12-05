@@ -45,6 +45,8 @@ public class CollagePanel extends JPanel {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
 				//TODO BACK BUTTON
+				VideoPlayer.closeIfExist();
+				MyApplication.videoCollageSeeker.close();
 				deleteLayerImages();
 			}
 		});

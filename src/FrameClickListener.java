@@ -4,12 +4,26 @@ import java.awt.event.MouseListener;
 
 public class FrameClickListener implements MouseListener {
 
-	private Thread display;
-	
+	private VideoPlayer videoPlayer;
+	private int frameIndex;
+
+	public FrameClickListener(VideoPlayer videoPlayer, int frameIndex) {
+		super();
+		this.videoPlayer = videoPlayer;
+		this.frameIndex = frameIndex;
+	}
+
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		if (e.getClickCount() == 1) {
-			
+			if (videoPlayer != null) {
+				videoPlayer.setFrameIndex(frameIndex);
+				if (videoPlayer.isVideoSuspended()) {
+					videoPlayer.updatePreview(frameIndex);
+				} else if (videoPlayer.isFinished()) {
+					videoPlayer.restart();
+				}
+			}
 		}
 	}
 
