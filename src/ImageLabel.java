@@ -15,7 +15,7 @@ public class ImageLabel extends MyLabel {
 	
 	public void setImage(String image){
 		this.imageFile = image;
-		this.fullImage = (BufferedImage) ImageReader.readVideo(image, MyApplication.IMAGE_WIDTH, MyApplication.IMAGE_HEIGHT).get(0).getImage();
+		this.fullImage = (BufferedImage) ImageReader.readImage(image, MyApplication.IMAGE_WIDTH, MyApplication.IMAGE_HEIGHT).getImage();
 		makeIcons(fullImage);
 		this.setIcon(this.solidIcon);
 	}

@@ -14,14 +14,27 @@ public class ImageIconMouseListener extends MyMouseListener {
 	public ImageIconMouseListener(JLabel preview, ImageLabel label) {
 		super(label, preview);
 		this.label = label;
-		this.video = ImageReader.readVideo(this.label.imageFile,
-				MyApplication.IMAGE_WIDTH, MyApplication.IMAGE_HEIGHT);
-		System.out.println(this.label.imageFile);
+		
 	}
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		if (e.getClickCount() == 2) {
+			if(video == null){
+				/*Thread loadImage = new Thread(new Runnable(){
+
+					@Override
+					public void run() {
+						
+					}
+					
+				});
+				loadImage.start();*/
+				video = ImageReader.readVideo(label.imageFile,
+						MyApplication.IMAGE_WIDTH, MyApplication.IMAGE_HEIGHT);
+				System.out.println(label.imageFile);
+				
+			}
 			if (player == null || player.isFinished()) {
 				if (!this.label.imageFile.contains(MyApplication.IMAGE_FILE)) {
 					MyApplication.videoCollageSeeker.display(video,
@@ -42,15 +55,21 @@ public class ImageIconMouseListener extends MyMouseListener {
 
 	@Override
 	public void mouseEntered(MouseEvent e) {
-		if (player != null) {
+		if (player != null && !player.isFinished()) {
+			
 			if (player.display != null) {
 				synchronized (player.display) {
 					player.setThreadSuspended(false);
 					player.display.notify();
 				}
 			}
+			
+		}
+		else{
+			ImageReader.displayImage(new ImageIcon(label.fullImage), this.preview);
 		}
 		super.mouseEntered(e);
+		
 	}
 
 	@Override

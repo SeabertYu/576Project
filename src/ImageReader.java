@@ -151,12 +151,19 @@ public class ImageReader {
 		}
 		System.out.println("===============================================");
 	}
-
+	public static ImageIcon readImage(String filename, int width, int height){
+		return readVideo(filename, width, height, 1).get(0);
+	}
 	public static ArrayList<ImageIcon> readVideo(String filename, int width,
 			int height){
+		return readVideo(filename, width, height, -1);
+	}
+
+	public static ArrayList<ImageIcon> readVideo(String filename, int width,
+			int height, int frameNum){
 		float widthFactor = ((float)width)/WIDTH;
 		float heightFactor = ((float)height)/HEIGHT;
-
+		boolean infinite = frameNum < 0? true:false;
 		
 		InputStream is = null;
 		ArrayList<ImageIcon> video = new ArrayList<ImageIcon>();
@@ -167,7 +174,7 @@ public class ImageReader {
 			byte[] bytes = new byte[SIZE * 3];
 			
 			int numRead = 0;
-			while (numRead >= 0) {// not end of file
+			while ((infinite||(frameNum--)>0) && numRead >= 0) {// not end of file
 				int offset = 0;
 				while (offset < bytes.length
 						&& (numRead = is.read(bytes, offset, bytes.length
@@ -256,7 +263,7 @@ public class ImageReader {
 		window.setVisible(true);
 		window.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		
-		ImageReader.displayImage(ImageReader.readVideo(fileName, width, height).get(0), frame);
+		ImageReader.displayImage(ImageReader.readVideo(fileName, width, height, -1).get(0), frame);
 
 	}
 

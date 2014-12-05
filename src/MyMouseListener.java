@@ -1,7 +1,6 @@
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
-import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
 
@@ -20,14 +19,11 @@ public class MyMouseListener implements MouseListener {
 
 	@Override
 	public void mouseEntered(MouseEvent arg0) {
-		// TODO Auto-generated method stub
-		ImageReader.displayImage(new ImageIcon(label.fullImage), this.preview);
 		highlight();
 	}
 
 	@Override
 	public void mouseExited(MouseEvent arg0) {
-		// TODO Auto-generated method stub
 		lowlight();
 	}
 

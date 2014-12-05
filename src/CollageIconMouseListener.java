@@ -1,5 +1,6 @@
 import java.awt.event.MouseEvent;
 
+import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
 //TODO click to open collage
@@ -25,7 +26,7 @@ public class CollageIconMouseListener extends MyMouseListener {
 
 	@Override
 	public void mouseEntered(MouseEvent arg0) {
-		// TODO Auto-generated method stub
+		ImageReader.displayImage(new ImageIcon(label.fullImage), this.preview);
 		super.mouseEntered(arg0);
 	}
 
