@@ -21,6 +21,9 @@ public class CollageIconMouseListener extends MyMouseListener {
 		if(me.getClickCount() == 2){
 			this.collagePanel.addLayerImages(this.label.list);
 		}
+		else if(me.getClickCount() == 1){
+			MyApplication.videoCollageSeeker.displayCollage(this.label.list);
+		}
 		
 	}
 

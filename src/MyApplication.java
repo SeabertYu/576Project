@@ -58,6 +58,7 @@ public class MyApplication {
 		if (headCluster != null) {
 			list.add(headCluster);
 		}
+		sortList(list);
 		final ArrayList<ArrayList<String>> finalList = new ArrayList<ArrayList<String>>(list);
 		for(ArrayList<String> l:list){
 			System.out.println(l.size());
@@ -120,6 +121,25 @@ public class MyApplication {
 		while(iterator.hasNext()){
 			list.add(map.get(iterator.next()));
 		}
+		Collections.sort(list, new Comparator<ArrayList<String>>(){
+
+			@Override
+			public int compare(ArrayList<String> arg0, ArrayList<String> arg1) {
+				int sizeA =  arg0.size();
+				int sizeB = arg1.size();
+				if(sizeA<sizeB){
+					return 1;
+				}
+				if(sizeA==sizeB){
+					return 0;
+				}
+				return -1;
+			}
+			
+		});
+		return list;
+	}
+	public static ArrayList<ArrayList<String>> sortList(ArrayList<ArrayList<String>> list){
 		Collections.sort(list, new Comparator<ArrayList<String>>(){
 
 			@Override

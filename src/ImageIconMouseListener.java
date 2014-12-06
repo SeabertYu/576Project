@@ -23,6 +23,12 @@ public class ImageIconMouseListener extends MyMouseListener {
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
+		if(VideoPlayer.isPlaying()){
+			System.out.println("here");
+			if(!VideoPlayer.isCurrentLabel(label)){
+				return;//ignore mouse click when other video is playing
+			}
+		}
 		if (e.getClickCount() == 1) {
 			if(video == null){
 				/*Thread loadImage = new Thread(new Runnable(){
@@ -43,16 +49,14 @@ public class ImageIconMouseListener extends MyMouseListener {
 					cache.put(label.imageFile, video);
 					System.out.println(label.imageFile);
 				}
-				
-				
 			}
+			
 			if (ImageReader.isImage(this.label.imageFile)) {
 				VideoPlayer.closeIfExist();
 				MyApplication.videoCollageSeeker.close();
 				return;
 			}
 			if (player != null && player.isVideoSuspended()) {
-				this.label.setCurrentIcon(this.label.pauseIcon);
 				player.start();
 			} else if (player == null || player.isFinished()) {
 				player = VideoPlayer.acquireVideoPlayer(label, preview, video);
@@ -60,10 +64,8 @@ public class ImageIconMouseListener extends MyMouseListener {
 					MyApplication.videoCollageSeeker.display(video,
 							this.label.imageFile, player);
 				}
-				this.label.setCurrentIcon(this.label.pauseIcon);
 				player.start();
 			} else {
-				this.label.setCurrentIcon(this.label.solidIcon);
 				player.suspend();
 			}
 		}

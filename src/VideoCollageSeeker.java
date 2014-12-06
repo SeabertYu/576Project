@@ -25,6 +25,7 @@ public class VideoCollageSeeker extends JPanel {
 	private static final Map<String, List<Integer>> keyFrameMap = new HashMap<String, List<Integer>>();
 
 	public static void initialize() {
+		
 		if (keyFrameMap.size() > 0) {
 			return;
 		}
@@ -49,6 +50,7 @@ public class VideoCollageSeeker extends JPanel {
 	
 	public VideoCollageSeeker() {
 		super();
+		this.setBounds(0, 0, 400, 720);
 		this.setVisible(false);
 	}
 	
@@ -74,6 +76,25 @@ public class VideoCollageSeeker extends JPanel {
 			frameLabel.addMouseListener(new FrameClickListener(player, index));
 			list.add(frameLabel);
 		}
+		this.setVisible(true);
+	}
+	public void displayCollage(ArrayList<ArrayList<String>> collage){
+		this.removeAll();
+		this.revalidate();
+		this.repaint();
+		JLayeredPane layer = new JLayeredPane();
+		layer.setLayout(new GridLayout(0, 8, 0, 0));
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+		scrollPane.getVerticalScrollBar().setUnitIncrement(20);
+		scrollPane.setViewportView(layer);
+		add(scrollPane);
+		
+		for(String filename:collage.get(0)){
+			System.out.println(filename);
+			layer.add(new ImageLabel(filename));
+		}
+		this.revalidate();
 		this.setVisible(true);
 	}
 

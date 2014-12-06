@@ -62,7 +62,17 @@ public class VideoPlayer {
 		}
 	}
 	
+	public static boolean isCurrentLabel(JLabel label){
+		if(currentVideoPlayer == null){
+			return false;
+		}
+		else{
+			return currentVideoPlayer.label == label;
+		}
+	}
+	
 	public void start() {
+		this.label.setCurrentIcon(this.label.pauseIcon);
 		if (display == null) {
 			display = new Thread(new Runnable(){
 				@Override
@@ -85,6 +95,7 @@ public class VideoPlayer {
 	 * restart the video
 	 */
 	public void restart() {
+		this.label.setCurrentIcon(this.label.pauseIcon);
 		if (isFinished()) {
 			display = new Thread(new Runnable(){
 				@Override
@@ -99,6 +110,7 @@ public class VideoPlayer {
 	}
 	
 	public void suspend(){
+		this.label.setCurrentIcon(this.label.solidIcon);
 		if(display!= null){
 			synchronized(this){
 				suspendVideo = true;
@@ -179,6 +191,7 @@ public class VideoPlayer {
 	private void setFinished(boolean finished) {
 		this.finished = finished;
 		this.frameIndex = new AtomicInteger(0);
+		this.label.setCurrentIcon(this.label.solidIcon);
 	}
 
 	public static void main(String[] args) {

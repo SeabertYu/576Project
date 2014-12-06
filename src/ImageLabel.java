@@ -14,6 +14,9 @@ public class ImageLabel extends MyLabel {
 		this.setImage(filename);
 		this.addMouseListener(new ImageIconMouseListener(this.preview, this));
 	}
+	public ImageLabel(String filename){
+		this.setImage(filename);
+	}
 	
 	public void setImage(String image){
 		this.imageFile = image;

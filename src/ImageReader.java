@@ -104,13 +104,19 @@ public class ImageReader {
 			ArrayList<ArrayList<String>> map, int width,
 			int height) {
 		printMap(map);
+		ArrayList<ArrayList<String>> keyImages = ClusterFactory.selectKeyImages(map);
+		printMap(keyImages);
+		map = keyImages;
 		BufferedImage result = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
 		initializeImage(result);
 		ArrayList<String> imagelist = new ArrayList<String>();
 		int num = 0;
-		if(map.size()>0){//2x2
+		if(map.size()>0){
 			imagelist.addAll(map.get(0));
-			if(imagelist.size()<=4){
+			if(imagelist.size()<=1){
+				num = 1;
+			}
+			else if(imagelist.size()<=4){
 				num = 2;
 			}
 			else{
