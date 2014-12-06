@@ -3,7 +3,6 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Iterator;
-import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
@@ -101,21 +100,19 @@ public class ClusterFactory {
 	 * @param matching
 	 * @return key images associated with each given cluster
 	 */
-	public static Map<String, List<String>> selectKeyImages(
-			Map<String, ArrayList<String>> cluster2Img) {
-		Set<String> clusters = cluster2Img.keySet();
+	public static ArrayList<ArrayList<String>> selectKeyImages(
+			ArrayList<ArrayList<String>> cluster2Img) {
 		Map<String, Map<String, Matching>> matching = getMatching();
-		Map<String, List<String>> keyImageCluster = new HashMap<String, List<String>>();
-		for (String cluster : clusters) {
-			List<String> imgs = cluster2Img.get(cluster);
-			keyImageCluster.put(cluster, keyImages(imgs, matching));
+		ArrayList<ArrayList<String>> keyImageCluster = new ArrayList<ArrayList<String>>();
+		for (ArrayList<String> cluster : cluster2Img) {
+			keyImageCluster.add(keyImages(cluster, matching));
 		}
 		return keyImageCluster;
 	}
 
-	private static List<String> keyImages(List<String> imgs,
+	private static ArrayList<String> keyImages(ArrayList<String> imgs,
 			Map<String, Map<String, Matching>> matching) {
-		List<String> result = new ArrayList<String>();
+		ArrayList<String> result = new ArrayList<String>();
 		int index = 0;
 		result.add(imgs.get(index));
 		while (index < imgs.size()) {
@@ -241,6 +238,10 @@ public class ClusterFactory {
 	}
 	
 	public static void main(String[] args) {
+		testSelectKeyImage();
+	}
+
+	private static void testMerge() {
 		String imageJSON = MyApplication.getJSON(MyApplication.IMAGE_CLUSTER);
 		HashMap<String, ArrayList<String>> map = new HashMap<String, ArrayList<String>>();
 		
@@ -259,15 +260,13 @@ public class ClusterFactory {
 		MyApplication.json2Map(imageJSON, cluster, MyApplication.IMAGE_FILE,
 				MyApplication.IMAGE_NUM);
 		// select key images for each cluster
-		Map<String, List<String>> key = selectKeyImages(cluster);
-		for (String k : key.keySet()) {
-			if (cluster.get(k).size() == key.get(k).size()) {
-				System.out.print(k + "## ");
-				for (String v : cluster.get(k)) {
-					System.out.print(v + ",,,,");
-				}
-				System.out.println();
-			}
+		ArrayList<ArrayList<String>> list = new ArrayList<ArrayList<String>>();
+		for (String key : cluster.keySet()) {
+			list.add(cluster.get(key));
+		}
+		ArrayList<ArrayList<String>> result = selectKeyImages(list);
+		for (int i = 0; i < list.size(); i++) {
+			System.out.println("original cluster size: " + list.get(i).size() + " key cluster size:" + result.get(i).size());
 		}
 	}
 }
