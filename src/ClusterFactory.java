@@ -114,22 +114,60 @@ public class ClusterFactory {
 			Map<String, Map<String, Matching>> matching) {
 		ArrayList<String> result = new ArrayList<String>();
 		int index = 0;
+		while (index < imgs.size()) {
+			if (imgs.get(index).contains(MyApplication.VIDEO_FILE)) {
+				index++;
+			} else {
+				break;
+			}
+		}
+		if (index == imgs.size()) {
+			return result;
+		}
 		result.add(imgs.get(index));
 		while (index < imgs.size()) {
+			if (imgs.get(index).contains(MyApplication.VIDEO_FILE)) {
+				index++;
+				continue;
+			}
 			int next = index + 1;
+			if (next < imgs.size() && imgs.get(next).contains(MyApplication.VIDEO_FILE)) {
+				index++;
+				continue;
+			}
 			if (next == imgs.size() - 1) {
-				Matching mat = matching.get(imgs.get(index))
-						.get(imgs.get(next));
+				Matching mat = null;
+				if (matching.get(imgs.get(index)).containsKey(imgs.get(next))) {
+					mat = matching.get(imgs.get(index))
+							.get(imgs.get(next));
+				} else {
+					mat = matching.get(imgs.get(next)).get(imgs.get(index));
+				}
 				if (mat.matched < KEY_IMAGE_THRESHOLD) {
 					result.add(imgs.get(next));
 				}
 				break;
 			}
 			while (next < imgs.size()) {
-				Matching mat = matching.get(imgs.get(index))
-						.get(imgs.get(next));
+				Matching mat = null;
+				if (matching.get(imgs.get(index)).containsKey(imgs.get(next))) {
+					mat = matching.get(imgs.get(index))
+							.get(imgs.get(next));
+				} else {
+					mat = matching.get(imgs.get(next)).get(imgs.get(index));
+				}
 				if (mat.matched > KEY_IMAGE_THRESHOLD) {
 					next++;
+					while (next < imgs.size()) {
+						if (imgs.get(next).contains(MyApplication.VIDEO_FILE)) {
+							next++;
+						} else {
+							break;
+						}
+					}
+					if (next >= imgs.size()) {
+						break;
+					}
 				} else {
 					break;
 				}
@@ -145,14 +183,15 @@ public class ClusterFactory {
 	}
 
 	/**
-	 * merge the cluster so that the size of clusters will be equal to the given target cluster size. 
+	 * merge the cluster so that the size of clusters will be equal to the given
+	 * target cluster size.
 	 * 
 	 * @param clusters
 	 * @param targetClusterSize
 	 * @return merged cluster
 	 */
-	public static ArrayList<ArrayList<String>> mergeCluster(ArrayList<ArrayList<String>> clusters,
-			int targetClusterSize) {
+	public static ArrayList<ArrayList<String>> mergeCluster(
+			ArrayList<ArrayList<String>> clusters, int targetClusterSize) {
 		if (targetClusterSize == clusters.size()) {
 			return clusters;
 		}
@@ -163,7 +202,7 @@ public class ClusterFactory {
 			}
 			return mergedClusters;
 		}
-		
+
 		Collections.sort(clusters, new Comparator<ArrayList<String>>() {
 
 			@Override
@@ -171,17 +210,18 @@ public class ClusterFactory {
 				return o1.size() - o2.size();
 			}
 		});
-		
+
 		// start merging clusters
 		for (int i = 0; i < targetClusterSize; i++) {
 			mergedClusters.add(clusters.get(i));
 		}
-		
+
 		int decreasedSize = clusters.size() - targetClusterSize;
 		int k = 1;
 		while (k <= decreasedSize) {
-			ArrayList<String> mergingCluster = clusters.get(clusters.size() - k);
-			Map<Integer, Double> scores = new HashMap<Integer,Double>();
+			ArrayList<String> mergingCluster = clusters
+					.get(clusters.size() - k);
+			Map<Integer, Double> scores = new HashMap<Integer, Double>();
 			for (int i = 0; i < targetClusterSize; i++) {
 				scores.put(i, distance(clusters.get(i), mergingCluster));
 			}
@@ -198,11 +238,12 @@ public class ClusterFactory {
 			mergedClusters.get(toIndex).addAll(mergingCluster);
 			k++;
 		}
-		
+
 		return mergedClusters;
 	}
 
-	private static double distance(ArrayList<String> cluster1, ArrayList<String> cluster2) {
+	private static double distance(ArrayList<String> cluster1,
+			ArrayList<String> cluster2) {
 		double score = 0.0;
 		int videoCount1 = 0;
 		int videoCount2 = 0;
@@ -224,7 +265,8 @@ public class ClusterFactory {
 				}
 			}
 		}
-		return score / ((cluster1.size() - videoCount1) * (cluster2.size() - videoCount2));
+		return score
+				/ ((cluster1.size() - videoCount1) * (cluster2.size() - videoCount2));
 	}
 
 	private static int getNumberOfVideo(ArrayList<String> cluster) {
@@ -236,7 +278,7 @@ public class ClusterFactory {
 		}
 		return video;
 	}
-	
+
 	public static void main(String[] args) {
 		testSelectKeyImage();
 	}
@@ -244,11 +286,12 @@ public class ClusterFactory {
 	private static void testMerge() {
 		String imageJSON = MyApplication.getJSON(MyApplication.IMAGE_CLUSTER);
 		HashMap<String, ArrayList<String>> map = new HashMap<String, ArrayList<String>>();
-		
-		MyApplication.json2Map(imageJSON, map, MyApplication.IMAGE_FILE, MyApplication.IMAGE_NUM);
-		//sort list
+
+		MyApplication.json2Map(imageJSON, map, MyApplication.IMAGE_FILE,
+				MyApplication.IMAGE_NUM);
+		// sort list
 		ArrayList<ArrayList<String>> list = MyApplication.sortMap(map);
-		
+
 		ArrayList<ArrayList<String>> mergerdCluster = mergeCluster(list, 20);
 		System.out.println(mergerdCluster.size());
 	}
@@ -256,9 +299,12 @@ public class ClusterFactory {
 	private static void testSelectKeyImage() {
 		// get the image cluster
 		HashMap<String, ArrayList<String>> cluster = new HashMap<String, ArrayList<String>>();
+		
 		String imageJSON = MyApplication.getJSON(MyApplication.IMAGE_CLUSTER);
 		MyApplication.json2Map(imageJSON, cluster, MyApplication.IMAGE_FILE,
 				MyApplication.IMAGE_NUM);
+		MyApplication.json2Map(MyApplication.getJSON(MyApplication.VIDEO_CLUSTER), cluster, MyApplication.VIDEO_FILE,
+				MyApplication.VIDEO_NUM);
 		// select key images for each cluster
 		ArrayList<ArrayList<String>> list = new ArrayList<ArrayList<String>>();
 		for (String key : cluster.keySet()) {
@@ -266,7 +312,8 @@ public class ClusterFactory {
 		}
 		ArrayList<ArrayList<String>> result = selectKeyImages(list);
 		for (int i = 0; i < list.size(); i++) {
-			System.out.println("original cluster size: " + list.get(i).size() + " key cluster size:" + result.get(i).size());
+			System.out.println("original cluster size: " + list.get(i).size()
+					+ " key cluster size:" + result.get(i).size());
 		}
 	}
 }
