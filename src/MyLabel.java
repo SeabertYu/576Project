@@ -11,6 +11,7 @@ public class MyLabel extends JLabel {
 	
 	public ImageIcon solidIcon;
 	public ImageIcon transIcon;
+	public ImageIcon currentIcon;
 	public BufferedImage fullImage;
 	
 	protected void makeIcons(Image image){
@@ -18,6 +19,7 @@ public class MyLabel extends JLabel {
 		//default
 		this.solidIcon = new ImageIcon(scaledImage);
 		this.transIcon = new ImageIcon(ImageReader.makeTransparent(scaledImage));
+		this.currentIcon = this.solidIcon;
 	}
 	/**
 	 * @param args

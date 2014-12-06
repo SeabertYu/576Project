@@ -46,7 +46,7 @@ public class MyMouseListener implements MouseListener {
 	
 	protected void lowlight(){
 //		this.label.setBorder(null);
-		this.label.setIcon((this.label.solidIcon));
+		this.label.setIcon((this.label.currentIcon));
 	}
 
 	/**

@@ -10,6 +10,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
@@ -22,11 +23,12 @@ public class ImageReader {
 	public static final int WIDTH = MyApplication.IMAGE_WIDTH;
 	public static final int HEIGHT = MyApplication.IMAGE_HEIGHT;
 	public static final String VIDEO_LABEL_PLAY = "./src/play.png";
+	public static final String VIDEO_LABEL_PAUSE = "./src/pause.png";
+	public static final float FULL_SIZE = 1.0f;
 	
 	static int SIZE = HEIGHT * WIDTH;
-	private static Image videoLabelPlay = null;
-	private static int videoLabelPlayX = 0;
-	private static int videoLabelPlayY = 0;
+	private static HashMap<String, Image> videoLabel = new HashMap<String, Image>();
+	
 
 	
 	
@@ -53,33 +55,39 @@ public class ImageReader {
 		return result;
 	}
 	
-	public static BufferedImage addVideoLabel(Image image, int offsetX, int offsetY, float factor){
-		if(videoLabelPlay == null){
+	public static BufferedImage addVideoLabel(Image image, String label, int offsetX, int offsetY, float factor){
+		Image videoLabelImage = null;
+		if(!videoLabel.containsKey(label)){
 			try {
-			    videoLabelPlay = ImageIO.read(new File(VIDEO_LABEL_PLAY));
+				videoLabelImage= ImageIO.read(new File(label));
+				videoLabel.put(label, videoLabelImage);
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
-			int h = videoLabelPlay.getHeight(null);
-			int w = videoLabelPlay.getWidth(null);
-			int H = image.getHeight(null);
-			int W = image.getWidth(null);
-			videoLabelPlayX = (W-w)/2;
-			videoLabelPlayY = (H-h)/2;
+			
 		}
+		else{
+			videoLabelImage = videoLabel.get(label);
+		}
+		int h = videoLabelImage.getHeight(null);
+		int w = videoLabelImage.getWidth(null);
+		int H = image.getHeight(null);
+		int W = image.getWidth(null);
+		int videoLabelPlayX = (W-w)/2;
+		int videoLabelPlayY = (H-h)/2;
 		int x = (int) (videoLabelPlayX*factor);
 		int y = (int) (videoLabelPlayY*factor);
-		int w = (int) (videoLabelPlay.getWidth(null)*factor);
-		int h = (int) (videoLabelPlay.getHeight(null)*factor);
-		Image tmpLabelPlay = videoLabelPlay;
+		w = (int) (videoLabelImage.getWidth(null)*factor);
+		h = (int) (videoLabelImage.getHeight(null)*factor);
+		Image tmpLabelImage = videoLabelImage;
 		if(x != videoLabelPlayX){
-			tmpLabelPlay = videoLabelPlay.getScaledInstance(w, h, Image.SCALE_DEFAULT);
+			tmpLabelImage = videoLabelImage.getScaledInstance(w, h, Image.SCALE_DEFAULT);
 		}
 		 
 		BufferedImage result = new BufferedImage(image.getWidth(null), image.getHeight(null), BufferedImage.TYPE_INT_ARGB);
 		Graphics2D g2 = result.createGraphics();
 		g2.drawImage(image, 0, 0, null);
-		g2.drawImage(tmpLabelPlay, x+offsetX,y+offsetY, null);
+		g2.drawImage(tmpLabelImage, x+offsetX,y+offsetY, null);
 		
 		return result;
 	}
@@ -175,7 +183,7 @@ public class ImageReader {
 				}
 				
 				if(isVideo(filename)){
-					result = addVideoLabel(result, offsetX, offsetY, factor);
+					result = addVideoLabel(result, VIDEO_LABEL_PLAY, offsetX, offsetY, factor);
 				}
 				
 				
@@ -207,7 +215,7 @@ public class ImageReader {
 	public static ImageIcon readImage(String filename, int width, int height){
 		Image result = readVideo(filename, width, height, 1).get(0).getImage();
 		if(isVideo(filename)){
-			result = addVideoLabel(result, 0, 0, 1.0f);
+			result = addVideoLabel(result, VIDEO_LABEL_PLAY,0, 0, FULL_SIZE);
 		}
 		return new ImageIcon(result);
 	}

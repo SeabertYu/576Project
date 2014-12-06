@@ -52,6 +52,7 @@ public class ImageIconMouseListener extends MyMouseListener {
 				return;
 			}
 			if (player != null && player.isVideoSuspended()) {
+				this.label.setCurrentIcon(this.label.pauseIcon);
 				player.start();
 			} else if (player == null || player.isFinished()) {
 				player = VideoPlayer.acquireVideoPlayer(label, preview, video);
@@ -59,8 +60,10 @@ public class ImageIconMouseListener extends MyMouseListener {
 					MyApplication.videoCollageSeeker.display(video,
 							this.label.imageFile, player);
 				}
+				this.label.setCurrentIcon(this.label.pauseIcon);
 				player.start();
 			} else {
+				this.label.setCurrentIcon(this.label.solidIcon);
 				player.suspend();
 			}
 		}
@@ -69,12 +72,14 @@ public class ImageIconMouseListener extends MyMouseListener {
 
 	@Override
 	public void mouseEntered(MouseEvent e) {
-		if(ImageReader.isImage(this.label.imageFile)||this.video == null||this.player == null || this.player.isFinished()){
-			ImageReader.displayImage(this.fullIcon, this.preview);
-		}
-		else if (ImageReader.isVideo(this.label.imageFile) || player != null && player.isVideoSuspended()) {
-			ImageReader.displayImage(video.get(player.getFrameIndex()), this.preview);
-		}
+		if(!VideoPlayer.isPlaying()){
+			if(ImageReader.isImage(this.label.imageFile)||this.video == null||this.player == null || this.player.isFinished()){
+				ImageReader.displayImage(this.fullIcon, this.preview);
+			}
+			else if (ImageReader.isVideo(this.label.imageFile) || player != null && player.isVideoSuspended()) {
+				ImageReader.displayImage(video.get(player.getFrameIndex()), this.preview);
+			}
+		}		
 		super.mouseEntered(e);
 		
 	}

@@ -53,6 +53,15 @@ public class VideoPlayer {
 		}
 	}
 	
+	public static boolean isPlaying(){
+		if(currentVideoPlayer == null){
+			return false;
+		}
+		else{
+			return !currentVideoPlayer.isFinished()&&!currentVideoPlayer.isVideoSuspended();
+		}
+	}
+	
 	public void start() {
 		if (display == null) {
 			display = new Thread(new Runnable(){
@@ -132,8 +141,8 @@ public class VideoPlayer {
 				return;
 			}
 		}
-		finished = true;
-		this.frameIndex = new AtomicInteger(0);
+		setFinished(true);
+		
 	}
 	
 	public void updatePreview(int frameIndex) {
@@ -169,6 +178,7 @@ public class VideoPlayer {
 
 	private void setFinished(boolean finished) {
 		this.finished = finished;
+		this.frameIndex = new AtomicInteger(0);
 	}
 
 	public static void main(String[] args) {
