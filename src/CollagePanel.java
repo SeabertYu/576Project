@@ -45,8 +45,7 @@ public class CollagePanel extends JPanel {
 		JButton btnBack = new JButton("Back");
 		btnBack.addMouseListener(new MouseAdapter() {
 			@Override
-			public void mouseClicked(MouseEvent arg0) {
-				//TODO BACK BUTTON
+			public void mouseReleased(MouseEvent arg0) {
 				VideoPlayer.closeIfExist();
 				MyApplication.videoCollageSeeker.close();
 				deleteLayerImages();
@@ -62,6 +61,7 @@ public class CollagePanel extends JPanel {
 		
 		scrollPane = new JScrollPane();
 		scrollPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+		scrollPane.getVerticalScrollBar().setUnitIncrement(20);
 		add(scrollPane, BorderLayout.CENTER);
 		
 		layeredPane = new JLayeredPane();

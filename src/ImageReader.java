@@ -53,7 +53,7 @@ public class ImageReader {
 		return result;
 	}
 	
-	public static BufferedImage addVideoLabel(Image image){
+	public static BufferedImage addVideoLabel(Image image, int offsetX, int offsetY, float factor){
 		if(videoLabelPlay == null){
 			try {
 			    videoLabelPlay = ImageIO.read(new File(VIDEO_LABEL_PLAY));
@@ -67,10 +67,19 @@ public class ImageReader {
 			videoLabelPlayX = (W-w)/2;
 			videoLabelPlayY = (H-h)/2;
 		}
+		int x = (int) (videoLabelPlayX*factor);
+		int y = (int) (videoLabelPlayY*factor);
+		int w = (int) (videoLabelPlay.getWidth(null)*factor);
+		int h = (int) (videoLabelPlay.getHeight(null)*factor);
+		Image tmpLabelPlay = videoLabelPlay;
+		if(x != videoLabelPlayX){
+			tmpLabelPlay = videoLabelPlay.getScaledInstance(w, h, Image.SCALE_DEFAULT);
+		}
+		 
 		BufferedImage result = new BufferedImage(image.getWidth(null), image.getHeight(null), BufferedImage.TYPE_INT_ARGB);
 		Graphics2D g2 = result.createGraphics();
 		g2.drawImage(image, 0, 0, null);
-		g2.drawImage(videoLabelPlay, videoLabelPlayX, videoLabelPlayY, null);
+		g2.drawImage(tmpLabelPlay, x+offsetX,y+offsetY, null);
 		
 		return result;
 	}
@@ -165,6 +174,9 @@ public class ImageReader {
 					e.printStackTrace();
 				}
 				
+				if(isVideo(filename)){
+					result = addVideoLabel(result, offsetX, offsetY, factor);
+				}
 				
 				
 				offsetX+=deltaW;
@@ -195,7 +207,7 @@ public class ImageReader {
 	public static ImageIcon readImage(String filename, int width, int height){
 		Image result = readVideo(filename, width, height, 1).get(0).getImage();
 		if(isVideo(filename)){
-			result = addVideoLabel(result);
+			result = addVideoLabel(result, 0, 0, 1.0f);
 		}
 		return new ImageIcon(result);
 	}

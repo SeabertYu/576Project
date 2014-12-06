@@ -69,7 +69,7 @@ public class ImageIconMouseListener extends MyMouseListener {
 
 	@Override
 	public void mouseEntered(MouseEvent e) {
-		if(ImageReader.isImage(this.label.imageFile)||this.video == null){
+		if(ImageReader.isImage(this.label.imageFile)||this.video == null||this.player == null || this.player.isFinished()){
 			ImageReader.displayImage(this.fullIcon, this.preview);
 		}
 		else if (ImageReader.isVideo(this.label.imageFile) || player != null && player.isVideoSuspended()) {

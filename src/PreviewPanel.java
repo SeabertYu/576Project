@@ -29,7 +29,7 @@ public class PreviewPanel extends JPanel {
 		setBorder(new LineBorder(new Color(0, 0, 0)));
 		setLayout(new BorderLayout(10, 0));
 
-		previewLabel = new JLabel("This is image");
+		previewLabel = new JLabel("");
 		previewLabel.setSize(new Dimension(352, 288));
 		previewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		previewLabel.setBorder(new LineBorder(new Color(128, 128, 128)));
