@@ -23,9 +23,39 @@ public class ImageIconMouseListener extends MyMouseListener {
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
+		
+
+	}
+
+	@Override
+	public void mouseEntered(MouseEvent e) {
+		if(!VideoPlayer.isPlaying()){
+			if(ImageReader.isImage(this.label.imageFile)||this.video == null||this.player == null || this.player.isFinished()){
+				ImageReader.displayImage(this.fullIcon, this.preview);
+			}
+			else if (ImageReader.isVideo(this.label.imageFile) || player != null && player.isVideoSuspended()) {
+				ImageReader.displayImage(video.get(player.getFrameIndex()), this.preview);
+			}
+		}		
+		super.mouseEntered(e);
+		
+	}
+
+	@Override
+	public void mouseExited(MouseEvent e) {
+		super.mouseExited(e);
+	}
+
+	@Override
+	public void mousePressed(MouseEvent e) {
+
+	}
+
+	@Override
+	public void mouseReleased(MouseEvent e) {
 		if(VideoPlayer.isPlaying()){
-			System.out.println("here");
 			if(!VideoPlayer.isCurrentLabel(label)){
+				System.out.println("IGNORED");
 				return;//ignore mouse click when other video is playing
 			}
 		}
@@ -69,36 +99,6 @@ public class ImageIconMouseListener extends MyMouseListener {
 				player.suspend();
 			}
 		}
-
-	}
-
-	@Override
-	public void mouseEntered(MouseEvent e) {
-		if(!VideoPlayer.isPlaying()){
-			if(ImageReader.isImage(this.label.imageFile)||this.video == null||this.player == null || this.player.isFinished()){
-				ImageReader.displayImage(this.fullIcon, this.preview);
-			}
-			else if (ImageReader.isVideo(this.label.imageFile) || player != null && player.isVideoSuspended()) {
-				ImageReader.displayImage(video.get(player.getFrameIndex()), this.preview);
-			}
-		}		
-		super.mouseEntered(e);
-		
-	}
-
-	@Override
-	public void mouseExited(MouseEvent e) {
-		super.mouseExited(e);
-	}
-
-	@Override
-	public void mousePressed(MouseEvent e) {
-
-	}
-
-	@Override
-	public void mouseReleased(MouseEvent e) {
-
 	}
 
 }

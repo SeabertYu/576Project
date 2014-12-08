@@ -30,11 +30,16 @@ public class VideoPlayer {
 			// stop playing the current video
 			synchronized (currentVideoPlayer) {
 				currentVideoPlayer.switchVideo(true);
+				currentVideoPlayer.setFinished(true);
+				synchronized (currentVideoPlayer.display){
+					currentVideoPlayer.suspendVideo = false;
+					currentVideoPlayer.display.notifyAll();
+				}
 			}
 			// wait until the current video player is done
 //			while (currentVideoPlayer.display.isAlive());
 			// set the current video as finished
-			currentVideoPlayer.setFinished(true);
+			
 		}
 		currentVideoPlayer = new VideoPlayer(label, preview, video);
 		return currentVideoPlayer;
@@ -75,10 +80,10 @@ public class VideoPlayer {
 		this.label.setCurrentIcon(this.label.pauseIcon);
 		if (display == null) {
 			display = new Thread(new Runnable(){
-				@Override
 				public void run() {
 					displayVideo();
 				}
+				
 				
 			});
 			display.start();
@@ -98,7 +103,6 @@ public class VideoPlayer {
 		this.label.setCurrentIcon(this.label.pauseIcon);
 		if (isFinished()) {
 			display = new Thread(new Runnable(){
-				@Override
 				public void run() {
 					displayVideo();
 				}
@@ -133,6 +137,8 @@ public class VideoPlayer {
 				synchronized (display) {
 					try {
 						display.wait();
+						System.out.println("notified!");
+						
 					} catch (InterruptedException e) {
 						e.printStackTrace();
 					}

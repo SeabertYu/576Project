@@ -4,6 +4,7 @@ import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.image.BufferedImage;
 
+import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
@@ -36,8 +37,9 @@ public class PreviewPanel extends JPanel {
 		add(previewLabel);
 		
 		JLabel previewTextLabel = new JLabel("Preview");
+		previewTextLabel.setIcon(new ImageIcon("./image/preview.png"));
 		previewTextLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		previewTextLabel.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		previewTextLabel.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		previewTextLabel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		add(previewTextLabel, BorderLayout.SOUTH);
 

@@ -22,9 +22,10 @@ import javax.swing.WindowConstants;
 public class ImageReader {
 	public static final int WIDTH = MyApplication.IMAGE_WIDTH;
 	public static final int HEIGHT = MyApplication.IMAGE_HEIGHT;
-	public static final String VIDEO_LABEL_PLAY = "./src/play.png";
-	public static final String VIDEO_LABEL_PAUSE = "./src/pause.png";
+	public static final String VIDEO_LABEL_PLAY = "./image/play.png";
+	public static final String VIDEO_LABEL_PAUSE = "./image/pause.png";
 	public static final float FULL_SIZE = 1.0f;
+	private static final Color DEFAULT_COLOR = new Color(214, 217, 223);
 	
 	static int SIZE = HEIGHT * WIDTH;
 	private static HashMap<String, Image> videoLabel = new HashMap<String, Image>();
@@ -46,10 +47,10 @@ public class ImageReader {
 		frame.setIcon(image);
 	}
 	
-	public static BufferedImage makeTransparent(Image image){
+	public static BufferedImage makeTransparent(Image image, float alpha){
 		BufferedImage result = new BufferedImage(image.getWidth(null), image.getHeight(null), BufferedImage.TYPE_INT_ARGB);
 		Graphics2D g2 = result.createGraphics();
-		AlphaComposite ac = AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 0.7f);
+		AlphaComposite ac = AlphaComposite.getInstance(AlphaComposite.SRC_OVER, alpha);
 		g2.setComposite(ac);
 		g2.drawImage(image, 0, 0, null);
 		return result;
@@ -206,7 +207,7 @@ public class ImageReader {
 		int w = image.getWidth();
 		for(int x = 0; x<w; x++){
 			for(int y = 0; y<h; y++){
-				image.setRGB(x, y, Color.LIGHT_GRAY.getRGB());
+				image.setRGB(x, y, DEFAULT_COLOR.getRGB());
 			}
 		}
 	}

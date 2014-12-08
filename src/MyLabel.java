@@ -18,7 +18,7 @@ public class MyLabel extends JLabel {
 		Image scaledImage = image.getScaledInstance(ICON_WIDTH, ICON_HEIGHT, Image.SCALE_DEFAULT);	
 		//default
 		this.solidIcon = new ImageIcon(scaledImage);
-		this.transIcon = new ImageIcon(ImageReader.makeTransparent(scaledImage));
+		this.transIcon = new ImageIcon(ImageReader.makeTransparent(scaledImage, 0.7f));
 		this.currentIcon = this.solidIcon;
 	}
 	/**

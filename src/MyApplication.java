@@ -14,9 +14,15 @@ import javax.swing.JFrame;
 import javax.swing.JLayeredPane;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
+import javax.swing.UIManager;
+import javax.swing.UIManager.LookAndFeelInfo;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
+import com.seaglasslookandfeel.SeaGlassLookAndFeel;
+import com.seaglasslookandfeel.ui.SeaGlassRootPaneUI;
+
+import java.awt.Toolkit;
 
 
 public class MyApplication {
@@ -67,7 +73,15 @@ public class MyApplication {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					MyApplication window = new MyApplication(finalList);
+					for (LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
+				        if ("Nimbus".equals(info.getName())) {
+				            UIManager.setLookAndFeel(info.getClassName());
+				            break;
+				        }
+				    }
+//					UIManager.installLookAndFeel("SeaGlass", "com.seaglasslookandfeel.SeaGlassLookAndFeel");
+//					UIManager.setLookAndFeel(new SeaGlassLookAndFeel());
+					MyApplication window = new MyApplication(finalList);					
 					window.frmImageBrowser.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -89,10 +103,11 @@ public class MyApplication {
 	 */
 	private void initialize() {
 		frmImageBrowser = new JFrame();
+		frmImageBrowser.setIconImage(Toolkit.getDefaultToolkit().getImage("./image/icon.png"));
 		frmImageBrowser.setTitle("Image Browser");
-		frmImageBrowser.setBounds(100, 100, 755, 368 * 2);
+		frmImageBrowser.setBounds(100, 100, 800, 380 * 2);
 		frmImageBrowser.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		
+//		frmImageBrowser.getRootPane().putClientProperty(SeaGlassRootPaneUI.UNIFIED_TOOLBAR_LOOK, Boolean.TRUE);
 		JMenuBar menuBar = new JMenuBar();
 		frmImageBrowser.setJMenuBar(menuBar);
 		
@@ -112,7 +127,7 @@ public class MyApplication {
 		frmImageBrowser.getContentPane().add(layeredPane);
 		videoCollageSeeker = new VideoCollageSeeker();
 		frmImageBrowser.getContentPane().add(videoCollageSeeker);
-		videoCollageSeeker.setVisible(false);
+		videoCollageSeeker.setVisible(true);
 	}
 	
 	public static ArrayList<ArrayList<String>> sortMap(HashMap<String, ArrayList<String>> map){
@@ -123,7 +138,6 @@ public class MyApplication {
 		}
 		Collections.sort(list, new Comparator<ArrayList<String>>(){
 
-			@Override
 			public int compare(ArrayList<String> arg0, ArrayList<String> arg1) {
 				int sizeA =  arg0.size();
 				int sizeB = arg1.size();
@@ -142,7 +156,6 @@ public class MyApplication {
 	public static ArrayList<ArrayList<String>> sortList(ArrayList<ArrayList<String>> list){
 		Collections.sort(list, new Comparator<ArrayList<String>>(){
 
-			@Override
 			public int compare(ArrayList<String> arg0, ArrayList<String> arg1) {
 				int sizeA =  arg0.size();
 				int sizeB = arg1.size();

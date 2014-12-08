@@ -20,6 +20,8 @@ import javax.swing.JScrollPane;
 import javax.swing.ScrollPaneConstants;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
+import javax.swing.UIManager;
+import javax.swing.ImageIcon;
 
 
 public class CollagePanel extends JPanel {
@@ -31,6 +33,7 @@ public class CollagePanel extends JPanel {
 	private JLabel preview;
 	private ArrayList<ArrayList<String>> lists;
 	private Stack<Component> comStack = new Stack<Component>();
+	private JButton buttonBack;
 	
 	/**
 	 * Create the panel.
@@ -40,10 +43,13 @@ public class CollagePanel extends JPanel {
 		this.lists = lists;
 		setSize(new Dimension(440, 500));
 		setBorder(new LineBorder(new Color(0, 0, 0)));
-		setLayout(new BorderLayout(10, 0));
+		setLayout(new BorderLayout(0, 0));
 		
-		JButton btnBack = new JButton("Back");
-		btnBack.addMouseListener(new MouseAdapter() {
+		buttonBack = new JButton("Back");
+		buttonBack.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		buttonBack.setIcon(new ImageIcon("./image/back.png"));
+		buttonBack.setPreferredSize(new Dimension(100, 30));
+		buttonBack.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseReleased(MouseEvent arg0) {
 				VideoPlayer.closeIfExist();
@@ -51,13 +57,7 @@ public class CollagePanel extends JPanel {
 				deleteLayerImages();
 			}
 		});
-		btnBack.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		btnBack.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-			}
-		});
-		btnBack.setBorder(new EmptyBorder(10, 100, 5, 100));
-		add(btnBack, BorderLayout.SOUTH);
+		add(buttonBack, BorderLayout.SOUTH);
 		
 		scrollPane = new JScrollPane();
 		scrollPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);

@@ -204,8 +204,6 @@ public class ClusterFactory {
 		}
 
 		Collections.sort(clusters, new Comparator<ArrayList<String>>() {
-
-			@Override
 			public int compare(ArrayList<String> o1, ArrayList<String> o2) {
 				return o1.size() - o2.size();
 			}

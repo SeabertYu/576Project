@@ -13,7 +13,6 @@ public class FrameClickListener implements MouseListener {
 		this.frameIndex = frameIndex;
 	}
 
-	@Override
 	public void mouseClicked(MouseEvent e) {
 		if (e.getClickCount() == 1) {
 			if (videoPlayer != null) {
@@ -27,26 +26,22 @@ public class FrameClickListener implements MouseListener {
 		}
 	}
 
-	@Override
-	public void mousePressed(MouseEvent e) {
+	public void mouseEntered(MouseEvent arg0) {
 		// TODO Auto-generated method stub
 		
 	}
 
-	@Override
-	public void mouseReleased(MouseEvent e) {
+	public void mouseExited(MouseEvent arg0) {
 		// TODO Auto-generated method stub
 		
 	}
 
-	@Override
-	public void mouseEntered(MouseEvent e) {
+	public void mousePressed(MouseEvent arg0) {
 		// TODO Auto-generated method stub
 		
 	}
 
-	@Override
-	public void mouseExited(MouseEvent e) {
+	public void mouseReleased(MouseEvent arg0) {
 		// TODO Auto-generated method stub
 		
 	}
