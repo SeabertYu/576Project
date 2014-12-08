@@ -1,5 +1,6 @@
 import java.awt.EventQueue;
 import java.awt.GridLayout;
+import java.awt.Toolkit;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -19,10 +20,6 @@ import javax.swing.UIManager.LookAndFeelInfo;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
-import com.seaglasslookandfeel.SeaGlassLookAndFeel;
-import com.seaglasslookandfeel.ui.SeaGlassRootPaneUI;
-
-import java.awt.Toolkit;
 
 
 public class MyApplication {
@@ -56,14 +53,14 @@ public class MyApplication {
 		json2Map(videoJSON, map, VIDEO_FILE, VIDEO_NUM);
 		
 		// remove head cluster
-		ArrayList<String> headCluster = map.remove(HEAD_CLUSTER_ID);
+//		ArrayList<String> headCluster = map.remove(HEAD_CLUSTER_ID);
 		//sort list		
 		ArrayList<ArrayList<String>> list = sortMap(map);		
-		list = ClusterFactory.mergeCluster(list, 33);
+//		list = ClusterFactory.mergeCluster(list, 33);
 		// add back in head cluster
-		if (headCluster != null) {
-			list.add(headCluster);
-		}
+//		if (headCluster != null) {
+//			list.add(headCluster);
+//		}
 		sortList(list);
 		final ArrayList<ArrayList<String>> finalList = new ArrayList<ArrayList<String>>(list);
 		for(ArrayList<String> l:list){
